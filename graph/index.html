@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>3D Chart</title>
+  <script src="https://cdn.plot.ly/plotly-2.30.0.min.js"></script>
+  <style>
+    body { margin:0; font-family: system-ui, sans-serif; }
+    #chart { width: 100vw; height: 100vh; }
+  </style>
+</head>
+<body>
+  <div id="chart"></div>
+
+  <script>
+    const trace = {
+      type: "scatter3d",
+      mode: "markers",
+      x: [1,2,3,4,5],
+      y: [2,1,4,3,5],
+      z: [10,12,8,14,11],
+      marker: { size: 6 }
+    };
+
+    const layout = {
+      title: "Unweirdly 3D Scatter",
+      scene: {
+        xaxis: { title: "X" },
+        yaxis: { title: "Y" },
+        zaxis: { title: "Z" }
+      },
+      margin: { l: 0, r: 0, b: 0, t: 50 }
+    };
+
+    Plotly.newPlot("chart", [trace], layout, {responsive: true});
+  </script>
+</body>
+</html>
