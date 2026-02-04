@@ -1,39 +1,329 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>3D Chart</title>
+  <title>Unweirdly • Chart Demo</title>
+  <meta name="description" content="Demo page with multiple 2D and 3D charts using Plotly." />
   <script src="https://cdn.plot.ly/plotly-2.30.0.min.js"></script>
   <style>
-    body { margin:0; font-family: system-ui, sans-serif; }
-    #chart { width: 100vw; height: 100vh; }
+    :root{
+      --bg:#0b0f14; --panel:rgba(255,255,255,.06);
+      --line:rgba(255,255,255,.14); --text:rgba(255,255,255,.92);
+      --muted:rgba(255,255,255,.65);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      color:var(--text);
+      background: radial-gradient(900px 600px at 15% 10%, rgba(124,92,255,.25), transparent 55%),
+                  radial-gradient(900px 600px at 85% 0%, rgba(0,209,255,.18), transparent 55%),
+                  var(--bg);
+    }
+    header{
+      max-width:1100px; margin:0 auto; padding:28px 18px 10px;
+      display:flex; gap:14px; align-items:baseline; justify-content:space-between; flex-wrap:wrap;
+    }
+    h1{margin:0; font-size:22px; letter-spacing:-.2px}
+    .hint{color:var(--muted); font-size:13px}
+    .wrap{max-width:1100px; margin:0 auto; padding:12px 18px 40px}
+    .grid{
+      display:grid; gap:14px;
+      grid-template-columns: repeat(12, 1fr);
+    }
+    .card{
+      border:1px solid var(--line);
+      background: var(--panel);
+      border-radius:16px;
+      padding:12px;
+      box-shadow: 0 18px 60px rgba(0,0,0,.35);
+      backdrop-filter: blur(10px);
+      min-height: 320px;
+    }
+    .card h2{
+      margin:2px 6px 10px;
+      font-size:14px; font-weight:700; color:var(--text);
+    }
+    .chart{height:260px;}
+    .span-6{grid-column: span 6;}
+    .span-12{grid-column: span 12;}
+    @media (max-width: 920px){
+      .span-6{grid-column: span 12;}
+      .chart{height:300px;}
+    }
+    .topbar{
+      display:flex; gap:10px; align-items:center; justify-content:flex-end; flex-wrap:wrap;
+    }
+    button{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.07);
+      color: var(--text);
+      border-radius: 12px;
+      padding: 9px 12px;
+      font-weight: 650;
+      cursor:pointer;
+    }
+    button:hover{transform: translateY(-1px)}
+    a{color:inherit}
   </style>
 </head>
 <body>
-  <div id="chart"></div>
+  <header>
+    <div>
+      <h1>Unweirdly • Chart Demo</h1>
+      <div class="hint">2D + 3D charts. Drag to pan/zoom. 3D charts rotate. <a href="/">← Home</a></div>
+    </div>
+    <div class="topbar">
+      <button id="randomize">Randomize data</button>
+      <button id="reset">Reset view</button>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <div class="grid">
+      <div class="card span-6">
+        <h2>Line (2D): Signal over time</h2>
+        <div id="line" class="chart"></div>
+      </div>
+
+      <div class="card span-6">
+        <h2>Bar (2D): Category volume</h2>
+        <div id="bar" class="chart"></div>
+      </div>
+
+      <div class="card span-6">
+        <h2>Heatmap (2D): Intensity matrix</h2>
+        <div id="heat" class="chart"></div>
+      </div>
+
+      <div class="card span-6">
+        <h2>Pie (2D): Share breakdown</h2>
+        <div id="pie" class="chart"></div>
+      </div>
+
+      <div class="card span-12">
+        <h2>3D Scatter: Clusters</h2>
+        <div id="scatter3d" class="chart" style="height:420px"></div>
+      </div>
+
+      <div class="card span-12">
+        <h2>3D Surface: Terrain-style surface</h2>
+        <div id="surface3d" class="chart" style="height:420px"></div>
+      </div>
+    </div>
+  </div>
 
   <script>
-    const trace = {
-      type: "scatter3d",
-      mode: "markers",
-      x: [1,2,3,4,5],
-      y: [2,1,4,3,5],
-      z: [10,12,8,14,11],
-      marker: { size: 6 }
+    // Shared layout defaults so charts match your site style
+    const baseLayout = {
+      paper_bgcolor: "rgba(0,0,0,0)",
+      plot_bgcolor: "rgba(0,0,0,0)",
+      font: { family: "system-ui, -apple-system, Segoe UI, Roboto, Arial", color: "rgba(255,255,255,.9)" },
+      margin: { l: 45, r: 20, t: 10, b: 40 },
+      xaxis: { gridcolor: "rgba(255,255,255,.10)", zerolinecolor: "rgba(255,255,255,.10)" },
+      yaxis: { gridcolor: "rgba(255,255,255,.10)", zerolinecolor: "rgba(255,255,255,.10)" },
+      legend: { bgcolor: "rgba(0,0,0,0)" }
     };
 
-    const layout = {
-      title: "Unweirdly 3D Scatter",
-      scene: {
-        xaxis: { title: "X" },
-        yaxis: { title: "Y" },
-        zaxis: { title: "Z" }
-      },
-      margin: { l: 0, r: 0, b: 0, t: 50 }
-    };
+    function randn() {
+      // Box-Muller
+      let u = 0, v = 0;
+      while (u === 0) u = Math.random();
+      while (v === 0) v = Math.random();
+      return Math.sqrt(-2.0 * Math.log(u)) * Math.cos(2.0 * Math.PI * v);
+    }
 
-    Plotly.newPlot("chart", [trace], layout, {responsive: true});
+    function linspace(n, start=0) {
+      return Array.from({length:n}, (_,i)=> start+i);
+    }
+
+    // ---------- Data generators ----------
+    function makeLineData(n=60){
+      const x = linspace(n, 1);
+      let y = [];
+      let val = 10;
+      for (let i=0;i<n;i++){
+        val += randn() * 0.6;
+        y.push(val + Math.sin(i/6)*1.2);
+      }
+      return {x,y};
+    }
+
+    function makeBarData(){
+      const cats = ["Alpha","Beta","Gamma","Delta","Epsilon","Zeta"];
+      const vals = cats.map(()=> Math.floor(20 + Math.random()*80));
+      return {cats, vals};
+    }
+
+    function makeHeatData(size=14){
+      const z = [];
+      for (let r=0;r<size;r++){
+        const row = [];
+        for (let c=0;c<size;c++){
+          const dist = Math.sqrt((r-size/2)**2 + (c-size/2)**2);
+          row.push(Math.exp(-dist/5) * 8 + randn()*0.25);
+        }
+        z.push(row);
+      }
+      return z;
+    }
+
+    function makePieData(){
+      const labels = ["Build","Simplify","Ship","Support"];
+      const values = labels.map(()=> Math.floor(10 + Math.random()*40));
+      return {labels, values};
+    }
+
+    function make3DScatter(){
+      // 3 clusters
+      const clusters = [
+        {name:"Cluster A", cx:-2.5, cy:1.5, cz:1.0},
+        {name:"Cluster B", cx:2.0,  cy:-1.8, cz:0.3},
+        {name:"Cluster C", cx:0.8,  cy:2.3,  cz:2.0},
+      ];
+      return clusters.map(cl => {
+        const n = 80;
+        const x=[], y=[], z=[];
+        for (let i=0;i<n;i++){
+          x.push(cl.cx + randn()*0.45);
+          y.push(cl.cy + randn()*0.45);
+          z.push(cl.cz + randn()*0.45);
+        }
+        return {
+          type:"scatter3d",
+          mode:"markers",
+          name: cl.name,
+          x,y,z,
+          marker:{ size: 3.8, opacity: 0.85 }
+        };
+      });
+    }
+
+    function make3DSurface(size=35){
+      const x = linspace(size, -3);
+      const y = linspace(size, -3);
+      const z = [];
+      for (let i=0;i<size;i++){
+        const row=[];
+        for (let j=0;j<size;j++){
+          const X = x[j]/3;
+          const Y = y[i]/3;
+          const height =
+            Math.sin(X) * Math.cos(Y) +
+            0.35*Math.cos(2*X) +
+            0.25*Math.sin(2*Y) +
+            randn()*0.03;
+          row.push(height);
+        }
+        z.push(row);
+      }
+      return {x, y, z};
+    }
+
+    // ---------- Renderers ----------
+    function renderAll(){
+      // Line
+      const L = makeLineData();
+      Plotly.newPlot("line", [{
+        type:"scatter",
+        mode:"lines",
+        x: L.x,
+        y: L.y,
+        line: { width: 3 },
+        name:"Signal"
+      }], {
+        ...baseLayout,
+        xaxis:{...baseLayout.xaxis, title:"Time"},
+        yaxis:{...baseLayout.yaxis, title:"Value"}
+      }, {responsive:true});
+
+      // Bar
+      const B = makeBarData();
+      Plotly.newPlot("bar", [{
+        type:"bar",
+        x: B.cats,
+        y: B.vals,
+        name:"Volume"
+      }], {
+        ...baseLayout,
+        xaxis:{...baseLayout.xaxis, title:"Category"},
+        yaxis:{...baseLayout.yaxis, title:"Count"}
+      }, {responsive:true});
+
+      // Heatmap
+      const H = makeHeatData();
+      Plotly.newPlot("heat", [{
+        type:"heatmap",
+        z: H,
+        showscale: false
+      }], {
+        ...baseLayout,
+        xaxis:{...baseLayout.xaxis, title:"X"},
+        yaxis:{...baseLayout.yaxis, title:"Y"}
+      }, {responsive:true});
+
+      // Pie
+      const P = makePieData();
+      Plotly.newPlot("pie", [{
+        type:"pie",
+        labels: P.labels,
+        values: P.values,
+        textinfo: "label+percent",
+        hole: 0.35
+      }], {
+        ...baseLayout,
+        margin:{l:10,r:10,t:10,b:10},
+        showlegend:false
+      }, {responsive:true});
+
+      // 3D Scatter
+      const S3 = make3DScatter();
+      Plotly.newPlot("scatter3d", S3, {
+        ...baseLayout,
+        margin:{l:0,r:0,t:10,b:0},
+        scene: {
+          bgcolor: "rgba(0,0,0,0)",
+          xaxis:{ gridcolor:"rgba(255,255,255,.12)", title:"X" },
+          yaxis:{ gridcolor:"rgba(255,255,255,.12)", title:"Y" },
+          zaxis:{ gridcolor:"rgba(255,255,255,.12)", title:"Z" }
+        }
+      }, {responsive:true});
+
+      // 3D Surface
+      const Surf = make3DSurface();
+      Plotly.newPlot("surface3d", [{
+        type:"surface",
+        x: Surf.x,
+        y: Surf.y,
+        z: Surf.z,
+        showscale: false
+      }], {
+        ...baseLayout,
+        margin:{l:0,r:0,t:10,b:0},
+        scene: {
+          bgcolor: "rgba(0,0,0,0)",
+          xaxis:{ gridcolor:"rgba(255,255,255,.12)", title:"X" },
+          yaxis:{ gridcolor:"rgba(255,255,255,.12)", title:"Y" },
+          zaxis:{ gridcolor:"rgba(255,255,255,.12)", title:"Z" }
+        }
+      }, {responsive:true});
+    }
+
+    // ---------- Buttons ----------
+    document.getElementById("randomize").addEventListener("click", () => {
+      renderAll();
+    });
+
+    document.getElementById("reset").addEventListener("click", async () => {
+      // Reset views without remaking data
+      const ids = ["line","bar","heat","pie","scatter3d","surface3d"];
+      for (const id of ids){
+        try { await Plotly.relayout(id, { "xaxis.autorange": true, "yaxis.autorange": true }); } catch(e){}
+        try { await Plotly.relayout(id, { "scene.camera": null }); } catch(e){}
+      }
+    });
+
+    renderAll();
   </script>
 </body>
 </html>
