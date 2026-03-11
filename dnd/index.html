@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dungeons & Dragons – Session 0</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.5;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 24px;
+      background: #f7f7f7;
+      color: #222;
+    }
+
+    .container {
+      background: #fff;
+      padding: 24px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    }
+
+    h1, h2, h3 {
+      margin-top: 1.2em;
+    }
+
+    h1 {
+      margin-top: 0;
+    }
+
+    fieldset {
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 20px;
+    }
+
+    legend {
+      font-weight: bold;
+      padding: 0 8px;
+    }
+
+    label {
+      display: block;
+      margin: 8px 0;
+    }
+
+    .inline-group label {
+      display: inline-block;
+      margin-right: 18px;
+    }
+
+    input[type="text"],
+    textarea {
+      width: 100%;
+      max-width: 100%;
+      padding: 8px;
+      margin-top: 4px;
+      box-sizing: border-box;
+      border: 1px solid #bbb;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+
+    textarea {
+      min-height: 80px;
+      resize: vertical;
+    }
+
+    .small-textarea {
+      min-height: 60px;
+    }
+
+    .boundary-row {
+      display: grid;
+      grid-template-columns: 1fr 220px;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .boundary-row label {
+      margin: 0;
+    }
+
+    .boundary-row select {
+      padding: 8px;
+      border-radius: 6px;
+      border: 1px solid #bbb;
+    }
+
+    .note {
+      background: #eef6ff;
+      padding: 12px;
+      border-left: 4px solid #4a90e2;
+      margin-bottom: 20px;
+      border-radius: 6px;
+    }
+
+    button {
+      background: #4a2f6b;
+      color: white;
+      border: none;
+      padding: 12px 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background: #37204f;
+    }
+
+    hr {
+      margin: 24px 0;
+      border: none;
+      border-top: 1px solid #ddd;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Dungeons & Dragons – Session 0</h1>
+    <p><strong>Comfort, Expectations & Campaign Briefing</strong></p>
+    <p><strong>Campaign Date Reference:</strong> March 11, 2026</p>
+
+    <div class="note">
+      <strong>Campaign Overview</strong><br />
+      This campaign takes place in <strong>Eberron</strong>: a world of magical industry, political intrigue, pulp adventure, and noir mystery.<br /><br />
+      Your characters begin as souls on the edge of <strong>Dolurrh</strong>, facing trials to determine if they may return to the land of the living.
+    </div>
+
+    <form id="session0Form">
+      <fieldset>
+        <legend>1. Player Information</legend>
+
+        <label>
+          Player Name:
+          <input type="text" name="playerName" />
+        </label>
+
+        <label>
+          Preferred Pronouns (optional):
+          <input type="text" name="pronouns" />
+        </label>
+
+        <h3>Preferred Playstyle (check all that apply)</h3>
+        <div class="inline-group">
+          <label><input type="checkbox" name="playstyle" value="Combat" /> Combat</label>
+          <label><input type="checkbox" name="playstyle" value="Roleplay" /> Roleplay</label>
+          <label><input type="checkbox" name="playstyle" value="Exploration" /> Exploration</label>
+          <label><input type="checkbox" name="playstyle" value="Puzzle solving" /> Puzzle solving</label>
+          <label><input type="checkbox" name="playstyle" value="Social intrigue / politics" /> Social intrigue / politics</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>2. Table Expectations</legend>
+
+        <h3>Preferred Tone</h3>
+        <div class="inline-group">
+          <label><input type="checkbox" name="tone" value="Serious adventure" /> Serious adventure</label>
+          <label><input type="checkbox" name="tone" value="Lighthearted adventure" /> Lighthearted adventure</label>
+          <label><input type="checkbox" name="tone" value="Comedy / silliness" /> Comedy / silliness</label>
+          <label><input type="checkbox" name="tone" value="Dark fantasy / grim" /> Dark fantasy / grim</label>
+          <label><input type="checkbox" name="tone" value="Mix of everything" /> Mix of everything</label>
+        </div>
+
+        <h3>Favorite Game Elements (check or rank)</h3>
+        <div class="inline-group">
+          <label><input type="checkbox" name="gameElements" value="Combat encounters" /> Combat encounters</label>
+          <label><input type="checkbox" name="gameElements" value="Story & roleplay" /> Story & roleplay</label>
+          <label><input type="checkbox" name="gameElements" value="Exploration & discovery" /> Exploration & discovery</label>
+          <label><input type="checkbox" name="gameElements" value="Character development & drama" /> Character development & drama</label>
+          <label><input type="checkbox" name="gameElements" value="Mystery solving" /> Mystery solving</label>
+          <label><input type="checkbox" name="gameElements" value="Strategy & clever tactics" /> Strategy & clever tactics</label>
+        </div>
+
+        <h3>Player vs. Player (PvP)</h3>
+        <div class="inline-group">
+          <label><input type="radio" name="pvp" value="Allowed (with good reason)" /> Allowed (with good reason)</label>
+          <label><input type="radio" name="pvp" value="Only with explicit consent" /> Only with explicit consent</label>
+          <label><input type="radio" name="pvp" value="Not allowed" /> Not allowed</label>
+        </div>
+
+        <h3>Character Death</h3>
+        <div class="inline-group">
+          <label><input type="radio" name="characterDeath" value="Rare / very hard to die" /> Rare / very hard to die</label>
+          <label><input type="radio" name="characterDeath" value="Possible and realistic" /> Possible and realistic</label>
+          <label><input type="radio" name="characterDeath" value="High risk / lethal campaign" /> High risk / lethal campaign</label>
+        </div>
+
+        <h3>Rules Approach</h3>
+        <div class="inline-group">
+          <label><input type="radio" name="rulesApproach" value="Strict Rules as Written (RAW)" /> Strict Rules as Written (RAW)</label>
+          <label><input type="radio" name="rulesApproach" value="Flexible — fun & story first" /> Flexible — fun & story first</label>
+          <label><input type="radio" name="rulesApproach" value="Narrative-first, rules second" /> Narrative-first, rules second</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>3. Rules & Allowed Sources</legend>
+
+        <p><strong>Edition:</strong> D&amp;D 2024–2025 rules (5.5E / One D&amp;D)</p>
+
+        <p><strong>Always Allowed Books</strong></p>
+        <ul>
+          <li>Player’s Handbook (2024)</li>
+          <li>Dungeon Master’s Guide (2024)</li>
+          <li>Eberron: Rising from the Last War</li>
+          <li>Eberron: Forge of the Artificer</li>
+        </ul>
+
+        <p><strong>Optional / Group Vote</strong></p>
+        <ul>
+          <li>Tasha’s Cauldron of Everything</li>
+          <li>Xanathar’s Guide to Everything</li>
+          <li>Other supplements (approval required)</li>
+        </ul>
+
+        <p><strong>Race Notes</strong></p>
+        <ul>
+          <li><strong>Fairy</strong> not allowed by default</li>
+          <li>Modified version (flight at higher levels) possible case-by-case</li>
+          <li>Creative concepts very welcome — strong story = negotiable</li>
+        </ul>
+
+        <p><strong>Restricted Spells (banned by default)</strong></p>
+        <ul>
+          <li>Wish</li>
+          <li>Silvery Barbs</li>
+          <li>Synaptic Static (or similar no-save control effects)</li>
+          <li>Simulacrum</li>
+        </ul>
+
+        <p>Access may be unlocked later via rare quests / story in some economy modes.</p>
+      </fieldset>
+
+      <fieldset>
+        <legend>4. Comfort & Boundaries</legend>
+
+        <p><strong>Legend</strong><br />
+        ❌ = Do not include<br />
+        ⚠ = Fade to black / brief mention only<br />
+        ✔ = Okay to include (handled sensitively)</p>
+
+        <h3>Violence & Physical Harm</h3>
+        <div class="boundary-row">
+          <label for="generalViolence">General violence</label>
+          <select id="generalViolence" name="generalViolence">
+            <option value="">Select</option>
+            <option value="❌ Do not include">❌ Do not include</option>
+            <option value="⚠ Fade to black / brief mention only">⚠ Fade to black / brief mention only</option>
+            <option value="✔ Okay to include">✔ Okay to include</option>
+          </select>
+        </div>
+        <div class="boundary-row">
+          <label for="graphicInjury">Graphic injury descriptions</label>
+          <select id="graphicInjury" name="graphicInjury">
+            <option value="">Select</option>
+            <option value="❌ Do not include">❌ Do not include</option>
+            <option value="⚠ Fade to black / brief mention only">⚠ Fade to black / brief mention only</option>
+            <option value="✔ Okay to include">✔ Okay to include</option>
+          </select>
+        </div>
+        <div class="boundary-row">
+          <label for="mutilation">Mutilation / dismemberment</label>
+          <select id="mutilation" name="mutilation">
+            <option value="">Select</option>
+            <option value="❌ Do not include">❌ Do not include</option>
+            <option value="⚠ Fade to black / brief mention only">⚠ Fade to black / brief mention only</option>
+            <option value="✔ Okay to include">✔ Okay to include</option>
+          </select>
+        </div>
+        <div class="boundary-row">
+          <label for="torture">Torture</label>
+          <select id="torture" name="torture">
+            <option value="">Select</option>
+            <option value="❌ Do not include">❌ Do not include</option>
+            <option value="⚠ Fade to black / brief mention only">⚠ Fade to black / brief mention only</option>
+            <option value="✔ Okay to include">✔ Okay to include</option>
+          </select>
+        </div>
+        <div class="boundary-row">
+          <label for="execution">Execution / ritual sacrifice</label>
+          <select id="execution" name="execution">
+            <option value="">Select</option>
+            <option value="❌ Do not include">❌ Do not include</option>
+            <option value="⚠ Fade to black / brief mention only">⚠ Fade to black / brief mention only</option>
+            <option value="✔ Okay to include">✔ Okay to include</option>
+          </select>
+        </div>
+        <div class="boundary-row">
+          <label for="undeadDesecration">Undead & desecration themes</label>
+          <select id="undeadDesecration" name="undeadDesecration">
+            <option value="">Select</option>
+            <option value="❌ Do not include">❌ Do not include</option>
+            <option value="⚠ Fade to black / brief mention only">⚠ Fade to black / brief mention only</option>
+            <option value="✔ Okay to include">✔ Okay to include</option>
+          </select>
+        </div>
+        <div class="boundary-row">
+          <label for="bodyHorror">Body horror / transformation</label>
+          <select id="bodyHorror" name="bodyHorror">
+            <option value="">Select</option>
+            <option value="❌ Do not include">❌ Do not include</option>
+            <option value="⚠ Fade to black / brief mention only">⚠ Fade to black / brief mention only</option>
+            <option value="✔ Okay to include">✔ Okay to include</option>
+          </select>
+        </div>
+        <div class="boundary-row">
+          <label for="magicalCorruption">Magical corruption / mutation</label>
+          <select id="magicalCorruption" name="magicalCorruption">
+            <option value="">Select</option>
+            <option value="❌ Do not include">❌ Do not include</option>
+            <option value="⚠ Fade to black / brief mention only">⚠ Fade to black / brief mention only</option>
+            <option value="✔ Okay to include">✔ Okay to include</option>
+          </select>
+        </div>
+
+        <h3>War & Atrocity Themes</h3>
+        <div class="boundary-row">
+          <label for="warCrimes">War crimes</label>
+          <select id="warCrimes" name="warCrimes">
+            <option value="">Select</option>
+            <option value="❌ Do not include">❌ Do not include</option>
+            <option value="⚠ Fade to black / brief mention only">⚠ Fade to black / brief mention only</option>
+            <option value="✔ Okay to include">✔ Okay to include</option>
+          </select>
+        </div>
+        <div class="boundary-row">
+          <label for="genocide">Genocide / extermination</label>
+          <select id="genocide" name="genocide">
+            <option value="">Select</option>
+            <option value="❌ Do not include">❌ Do not include</option>
+            <option value="⚠ Fade to black / brief mention only">⚠ Fade to black / brief mention only</option>
+            <option value="✔ Okay to include">✔ Okay to include</option>
+          </select>
+        </div>
+        <div class="boundary-row">
+          <label for="slavery">Slavery</label>
+          <select id="slavery" name="slavery">
+            <option value="">Select</option>
+            <option value="❌ Do not include">❌ Do not include</option>
+            <option value="⚠ Fade to black / brief mention only">⚠ Fade to black / brief mention only</option>
+            <option value="✔ Okay to include">✔ Okay to include</option>
+          </select>
+        </div>
+        <div class="boundary-row">
+          <label for="forcedLabor">Forced labor / prison camps</label>
+          <select id="forcedLabor" name="forcedLabor">
+            <option value="">Select</option>
+            <option value="❌ Do not include">❌ Do not include</option>
+            <option value="⚠ Fade to black / brief mention only">⚠ Fade to black / brief mention only</option>
+            <option value="✔ Okay to include">✔ Okay to include</option>
+          </select>
+        </div>
+        <div class="boundary-row">
+          <label for="politicalOppression">Political oppression</label>
+          <select id="politicalOppression" name="politicalOppression">
+            <option value="">Select</option>
+            <option value="❌ Do not include">❌ Do not include</option>
+            <option value="⚠ Fade to black / brief mention only">⚠ Fade to black / brief mention only</option>
+            <option value="✔ Okay to include">✔ Okay to include</option>
+          </select>
+        </div>
+        <div class="boundary-row">
+          <label for="fascistRefs">Fascist ideology references</label>
+          <select id="fascistRefs" name="fascistRefs">
+            <option value="">Select</option>
+            <option value="❌ Do not include">❌ Do not include</option>
+            <option value="⚠ Fade to black / brief mention only">⚠ Fade to black / brief mention only</option>
+            <option value="✔ Okay to include">✔ Okay to include</option>
+          </select>
+        </div>
+        <div class="boundary-row">
+          <label for="massCasualties">Mass civilian casualties</label>
+          <select id="massCasualties" name="massCasualties">
+            <option value="">Select</option>
+            <option value="❌ Do not include">❌ Do not include</option>
+            <option value="⚠ Fade to black / brief mention only">⚠ Fade to black / brief mention only</option>
+            <option value="✔ Okay to include">✔ Okay to include</option>
+          </select>
+        </div>
+
+        <h3>Psychological Themes</h3>
+        <div class="boundary-row">
+          <label for="mindControl">Mind control / loss of agency</label>
+          <select id="mindControl" name="mindControl">
+            <option value="">Select</option>
+            <option value="❌ Do not include">❌ Do not include</option>
+            <option value="⚠ Fade to black / brief mention only">⚠ Fade to black / brief mention only</option>
+            <option value="✔ Okay to include">✔ Okay to include</option>
+          </select>
+        </div>
+        <div class="boundary-row">
+          <label for="possession">Possession</label>
+          <select id="possession" name="possession">
+            <option value="">Select</option>
+            <option value="❌ Do not include">❌ Do not include</option>
+            <option value="⚠ Fade to black / brief mention only">⚠ Fade to black / brief mention only</option>
+            <option value="✔ Okay to include">✔ Okay to include</option>
+          </select>
+        </div>
+        <div class="boundary-row">
+          <label for="madness">Madness / psychological horror</label>
+          <select id="madness" name="madness">
+            <option value="">Select</option>
+            <option value="❌ Do not include">❌ Do not include</option>
+            <option value="⚠ Fade to black / brief mention only">⚠ Fade to black / brief mention only</option>
+            <option value="✔ Okay to include">✔ Okay to include</option>
+          </select>
+        </div>
+        <div class="boundary-row">
+          <label for="gaslighting">Gaslighting / manipulation</label>
+          <select id="gaslighting" name="gaslighting">
+            <option value="">Select</option>
+            <option value="❌ Do not include">❌ Do not include</option>
+            <option value="⚠ Fade to black / brief mention only">⚠ Fade to black / brief mention only</option>
+            <option value="✔ Okay to include">✔ Okay to include</option>
+          </select>
+        </div>
+        <div class="boundary-row">
+          <label for="isolation">Isolation / imprisonment</label>
+          <select id="isolation" name="isolation">
+            <option value="">Select</option>
+            <option value="❌ Do not include">❌ Do not include</option>
+            <option value="⚠ Fade to black / brief mention only">⚠ Fade to black / brief mention only</option>
+            <option value="✔ Okay to include">✔ Okay to include</option>
+          </select>
+        </div>
+
+        <h3>Sensitive Topics</h3>
+        <div class="boundary-row">
+          <label for="harmChildren">Harm to children</label>
+          <select id="harmChildren" name="harmChildren">
+            <option value="">Select</option>
+            <option value="❌ Do not include">❌ Do not include</option>
+            <option value="⚠ Fade to black / brief mention only">⚠ Fade to black / brief mention only</option>
+            <option value="✔ Okay to include">✔ Okay to include</option>
+          </select>
+        </div>
+        <div class="boundary-row">
+          <label for="harmAnimals">Harm to animals</label>
+          <select id="harmAnimals" name="harmAnimals">
+            <option value="">Select</option>
+            <option value="❌ Do not include">❌ Do not include</option>
+            <option value="⚠ Fade to black / brief mention only">⚠ Fade to black / brief mention only</option>
+            <option value="✔ Okay to include">✔ Okay to include</option>
+          </select>
+        </div>
+        <div class="boundary-row">
+          <label for="romance">Romantic / intimate relationships</label>
+          <select id="romance" name="romance">
+            <option value="">Select</option>
+            <option value="❌ Do not include">❌ Do not include</option>
+            <option value="⚠ Fade to black / brief mention only">⚠ Fade to black / brief mention only</option>
+            <option value="✔ Okay to include">✔ Okay to include</option>
+          </select>
+        </div>
+        <div class="boundary-row">
+          <label for="sexualContent">Sexual content</label>
+          <select id="sexualContent" name="sexualContent">
+            <option value="">Select</option>
+            <option value="❌ Do not include">❌ Do not include</option>
+            <option value="⚠ Fade to black / brief mention only">⚠ Fade to black / brief mention only</option>
+            <option value="✔ Okay to include">✔ Okay to include</option>
+          </select>
+        </div>
+        <div class="boundary-row">
+          <label for="sexualViolence">Sexual violence</label>
+          <select id="sexualViolence" name="sexualViolence">
+            <option value="">Select</option>
+            <option value="❌ Do not include">❌ Do not include</option>
+            <option value="⚠ Fade to black / brief mention only">⚠ Fade to black / brief mention only</option>
+            <option value="✔ Okay to include">✔ Okay to include</option>
+          </select>
+        </div>
+        <div class="boundary-row">
+          <label for="drugThemes">Drug / addiction themes</label>
+          <select id="drugThemes" name="drugThemes">
+            <option value="">Select</option>
+            <option value="❌ Do not include">❌ Do not include</option>
+            <option value="⚠ Fade to black / brief mention only">⚠ Fade to black / brief mention only</option>
+            <option value="✔ Okay to include">✔ Okay to include</option>
+          </select>
+        </div>
+        <div class="boundary-row">
+          <label for="religiousPersecution">Religious persecution</label>
+          <select id="religiousPersecution" name="religiousPersecution">
+            <option value="">Select</option>
+            <option value="❌ Do not include">❌ Do not include</option>
+            <option value="⚠ Fade to black / brief mention only">⚠ Fade to black / brief mention only</option>
+            <option value="✔ Okay to include">✔ Okay to include</option>
+          </select>
+        </div>
+        <div class="boundary-row">
+          <label for="suicide">Suicide / self-harm</label>
+          <select id="suicide" name="suicide">
+            <option value="">Select</option>
+            <option value="❌ Do not include">❌ Do not include</option>
+            <option value="⚠ Fade to black / brief mention only">⚠ Fade to black / brief mention only</option>
+            <option value="✔ Okay to include">✔ Okay to include</option>
+          </select>
+        </div>
+
+        <h3>Horror Elements</h3>
+        <div class="boundary-row">
+          <label for="cannibalism">Cannibalism</label>
+          <select id="cannibalism" name="cannibalism">
+            <option value="">Select</option>
+            <option value="❌ Do not include">❌ Do not include</option>
+            <option value="⚠ Fade to black / brief mention only">⚠ Fade to black / brief mention only</option>
+            <option value="✔ Okay to include">✔ Okay to include</option>
+          </select>
+        </div>
+        <div class="boundary-row">
+          <label for="parasites">Parasitic creatures</label>
+          <select id="parasites" name="parasites">
+            <option value="">Select</option>
+            <option value="❌ Do not include">❌ Do not include</option>
+            <option value="⚠ Fade to black / brief mention only">⚠ Fade to black / brief mention only</option>
+            <option value="✔ Okay to include">✔ Okay to include</option>
+          </select>
+        </div>
+        <div class="boundary-row">
+          <label for="monstersConsuming">Monsters consuming people</label>
+          <select id="monstersConsuming" name="monstersConsuming">
+            <option value="">Select</option>
+            <option value="❌ Do not include">❌ Do not include</option>
+            <option value="⚠ Fade to black / brief mention only">⚠ Fade to black / brief mention only</option>
+            <option value="✔ Okay to include">✔ Okay to include</option>
+          </select>
+        </div>
+        <div class="boundary-row">
+          <label for="monsterTransformation">Transformation into monsters</label>
+          <select id="monsterTransformation" name="monsterTransformation">
+            <option value="">Select</option>
+            <option value="❌ Do not include">❌ Do not include</option>
+            <option value="⚠ Fade to black / brief mention only">⚠ Fade to black / brief mention only</option>
+            <option value="✔ Okay to include">✔ Okay to include</option>
+          </select>
+        </div>
+        <div class="boundary-row">
+          <label for="diseasePlague">Disease / magical plague</label>
+          <select id="diseasePlague" name="diseasePlague">
+            <option value="">Select</option>
+            <option value="❌ Do not include">❌ Do not include</option>
+            <option value="⚠ Fade to black / brief mention only">⚠ Fade to black / brief mention only</option>
+            <option value="✔ Okay to include">✔ Okay to include</option>
+          </select>
+        </div>
+
+        <label>
+          Additional boundaries / triggers:
+          <textarea name="additionalBoundaries"></textarea>
+        </label>
+      </fieldset>
+
+      <fieldset>
+        <legend>5. Safety Tool</legend>
+        <p>Anyone can say <strong>PAUSE</strong> at any time.</p>
+        <p>Game stops immediately — no questions asked.</p>
+        <p>We adjust, skip, or break until everyone is comfortable.</p>
+        <p>Private DM check-ins always welcome.</p>
+      </fieldset>
+
+      <fieldset>
+        <legend>6. Eberron Adventure Interests</legend>
+
+        <div class="boundary-row">
+          <label for="pulpAdventure">Pulp Adventure (airships, daring escapes, lightning rail fights)</label>
+          <select id="pulpAdventure" name="pulpAdventure">
+            <option value="">Select</option>
+            <option value="Yes">Yes</option>
+            <option value="Maybe">Maybe</option>
+            <option value="No">No</option>
+          </select>
+        </div>
+
+        <div class="boundary-row">
+          <label for="noirInvestigation">Noir Investigation (mysteries, conspiracies, crime)</label>
+          <select id="noirInvestigation" name="noirInvestigation">
+            <option value="">Select</option>
+            <option value="Yes">Yes</option>
+            <option value="Maybe">Maybe</option>
+            <option value="No">No</option>
+          </select>
+        </div>
+
+        <div class="boundary-row">
+          <label for="explorationInterest">Exploration (lost ruins, Xen’drik, ancient secrets)</label>
+          <select id="explorationInterest" name="explorationInterest">
+            <option value="">Select</option>
+            <option value="Yes">Yes</option>
+            <option value="Maybe">Maybe</option>
+            <option value="No">No</option>
+          </select>
+        </div>
+
+        <div class="boundary-row">
+          <label for="politicalIntrigue">Political Intrigue (Houses, espionage, diplomacy)</label>
+          <select id="politicalIntrigue" name="politicalIntrigue">
+            <option value="">Select</option>
+            <option value="Yes">Yes</option>
+            <option value="Maybe">Maybe</option>
+            <option value="No">No</option>
+          </select>
+        </div>
+
+        <div class="boundary-row">
+          <label for="warAftermath">War Aftermath (Last War scars & stories)</label>
+          <select id="warAftermath" name="warAftermath">
+            <option value="">Select</option>
+            <option value="Yes">Yes</option>
+            <option value="Maybe">Maybe</option>
+            <option value="No">No</option>
+          </select>
+        </div>
+
+        <div class="boundary-row">
+          <label for="horrorInterest">Horror (Daelkyr, madness, cursed items)</label>
+          <select id="horrorInterest" name="horrorInterest">
+            <option value="">Select</option>
+            <option value="Yes">Yes</option>
+            <option value="Maybe">Maybe</option>
+            <option value="No">No</option>
+          </select>
+        </div>
+
+        <div class="boundary-row">
+          <label for="highMagic">High Magic / Magitech (artificers, lightning rail, industry)</label>
+          <select id="highMagic" name="highMagic">
+            <option value="">Select</option>
+            <option value="Yes">Yes</option>
+            <option value="Maybe">Maybe</option>
+            <option value="No">No</option>
+          </select>
+        </div>
+
+        <div class="boundary-row">
+          <label for="bastionsInterest">Bastions / Player Base Building</label>
+          <select id="bastionsInterest" name="bastionsInterest">
+            <option value="">Select</option>
+            <option value="Yes">Yes</option>
+            <option value="Maybe">Maybe</option>
+            <option value="No">No</option>
+          </select>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>7. Spirit Trial (Starting Experience)</legend>
+        <p>Safe tutorial in the Spirit World near Dolurrh — experiment with classes & mechanics.</p>
+
+        <label>
+          Subclass I want to test:
+          <textarea class="small-textarea" name="subclassTest"></textarea>
+        </label>
+
+        <h3>Trial Level Preference</h3>
+        <div class="inline-group">
+          <label><input type="radio" name="trialLevel" value="Level 1 – Basics" /> Level 1 – Basics</label>
+          <label><input type="radio" name="trialLevel" value="Level 4 – Full subclass feel" /> Level 4 – Full subclass feel</label>
+          <label><input type="radio" name="trialLevel" value="Level 6 – Advanced / tougher challenges" /> Level 6 – Advanced / tougher challenges</label>
+        </div>
+
+        <p>Final character chosen <strong>after</strong> trial.</p>
+      </fieldset>
+
+      <fieldset>
+        <legend>8. Early Sessions Pace</legend>
+        <div class="inline-group">
+          <label><input type="radio" name="pace" value="Slow & gentle introduction" /> Slow & gentle introduction</label>
+          <label><input type="radio" name="pace" value="Balanced learning curve" /> Balanced learning curve</label>
+          <label><input type="radio" name="pace" value="Jump straight into action" /> Jump straight into action</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>9. Leveling Style</legend>
+        <div class="inline-group">
+          <label><input type="radio" name="levelingStyle" value="XP (earned from encounters, challenges, victories)" /> XP (earned from encounters, challenges, victories)</label>
+          <label><input type="radio" name="levelingStyle" value="Milestone (at major story beats — may include special rewards)" /> Milestone (at major story beats — may include special rewards)</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>10. Bastions / Headquarters</legend>
+        <p>Interested in a party base (fortress, airship, workshop, guild hall, etc.)?</p>
+        <div class="inline-group">
+          <label><input type="radio" name="partyBase" value="Yes" /> Yes</label>
+          <label><input type="radio" name="partyBase" value="Maybe" /> Maybe</label>
+          <label><input type="radio" name="partyBase" value="No" /> No</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>11. Multiclassing</legend>
+        <p>Allowed with <strong>story justification</strong> — discuss with DM early.</p>
+
+        <div class="inline-group">
+          <label><input type="radio" name="multiclassInterested" value="Yes" /> Yes</label>
+          <label><input type="radio" name="multiclassInterested" value="Maybe" /> Maybe</label>
+          <label><input type="radio" name="multiclassInterested" value="No" /> No</label>
+        </div>
+
+        <label>
+          Possible concept(s):
+          <input type="text" name="multiclassConcepts" />
+        </label>
+      </fieldset>
+
+      <fieldset>
+        <legend>12. Economy & Loot Style</legend>
+
+        <p><strong>A – Crafting & Business</strong> (classic Eberron)<br />
+        Trade, contracts, Houses, Bastions → build influence & gear.<br />
+        Restricted spells <strong>do not exist</strong> here.</p>
+
+        <p><strong>B – Market Economy</strong><br />
+        Big cities = magic markets. Gold buys items.<br />
+        Restricted spells = very rare loot only.</p>
+
+        <p><strong>C – Story / Milestone Rewards</strong><br />
+        Items via quests, discoveries, epic moments.<br />
+        Restricted spells & legendaries possible through arcs.</p>
+
+        <h3>My choice</h3>
+        <div class="inline-group">
+          <label><input type="radio" name="economyStyle" value="A – Crafting & Business" /> A – Crafting & Business</label>
+          <label><input type="radio" name="economyStyle" value="B – Market Economy" /> B – Market Economy</label>
+          <label><input type="radio" name="economyStyle" value="C – Story / Milestone" /> C – Story / Milestone</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>13. Character Concept Prompts</legend>
+
+        <label>
+          My character once was:
+          <textarea name="characterOnceWas"></textarea>
+        </label>
+
+        <label>
+          How did they die?
+          <textarea name="howDidTheyDie"></textarea>
+        </label>
+
+        <label>
+          If returned to life, what do they want most?
+          <textarea name="whatDoTheyWantMost"></textarea>
+        </label>
+
+        <label>
+          Unfinished business tying them to the world:
+          <textarea name="unfinishedBusiness"></textarea>
+        </label>
+
+        <label>
+          Something they fear about returning:
+          <textarea name="fearAboutReturning"></textarea>
+        </label>
+      </fieldset>
+
+      <button type="submit">Submit</button>
+    </form>
+
+    <hr />
+    <p>Thank you! Excited for an unforgettable Eberron journey together.</p>
+  </div>
+
+  <script>
+    function getCheckedValues(name) {
+      return Array.from(document.querySelectorAll(`input[name="${name}"]:checked`))
+        .map(el => el.value)
+        .join(", ") || "None selected";
+    }
+
+    function getRadioValue(name) {
+      const selected = document.querySelector(`input[name="${name}"]:checked`);
+      return selected ? selected.value : "Not selected";
+    }
+
+    function getValue(name) {
+      const el = document.querySelector(`[name="${name}"]`);
+      return el && el.value.trim() ? el.value.trim() : "Not provided";
+    }
+
+    document.getElementById("session0Form").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const subject = "D&D Session 0 Form Submission";
+
+      const body = `
+Dungeons & Dragons – Session 0
+Comfort, Expectations & Campaign Briefing
+Campaign Date Reference: March 11, 2026
+
+=== 1. Player Information ===
+Player Name: ${getValue("playerName")}
+Preferred Pronouns: ${getValue("pronouns")}
+Preferred Playstyle: ${getCheckedValues("playstyle")}
+
+=== 2. Table Expectations ===
+Preferred Tone: ${getCheckedValues("tone")}
+Favorite Game Elements: ${getCheckedValues("gameElements")}
+PvP: ${getRadioValue("pvp")}
+Character Death: ${getRadioValue("characterDeath")}
+Rules Approach: ${getRadioValue("rulesApproach")}
+
+=== 3. Rules & Allowed Sources ===
+Edition: D&D 2024–2025 rules (5.5E / One D&D)
+
+=== 4. Comfort & Boundaries ===
+General violence: ${getValue("generalViolence")}
+Graphic injury descriptions: ${getValue("graphicInjury")}
+Mutilation / dismemberment: ${getValue("mutilation")}
+Torture: ${getValue("torture")}
+Execution / ritual sacrifice: ${getValue("execution")}
+Undead & desecration themes: ${getValue("undeadDesecration")}
+Body horror / transformation: ${getValue("bodyHorror")}
+Magical corruption / mutation: ${getValue("magicalCorruption")}
+
+War crimes: ${getValue("warCrimes")}
+Genocide / extermination: ${getValue("genocide")}
+Slavery: ${getValue("slavery")}
+Forced labor / prison camps: ${getValue("forcedLabor")}
+Political oppression: ${getValue("politicalOppression")}
+Fascist ideology references: ${getValue("fascistRefs")}
+Mass civilian casualties: ${getValue("massCasualties")}
+
+Mind control / loss of agency: ${getValue("mindControl")}
+Possession: ${getValue("possession")}
+Madness / psychological horror: ${getValue("madness")}
+Gaslighting / manipulation: ${getValue("gaslighting")}
+Isolation / imprisonment: ${getValue("isolation")}
+
+Harm to children: ${getValue("harmChildren")}
+Harm to animals: ${getValue("harmAnimals")}
+Romantic / intimate relationships: ${getValue("romance")}
+Sexual content: ${getValue("sexualContent")}
+Sexual violence: ${getValue("sexualViolence")}
+Drug / addiction themes: ${getValue("drugThemes")}
+Religious persecution: ${getValue("religiousPersecution")}
+Suicide / self-harm: ${getValue("suicide")}
+
+Cannibalism: ${getValue("cannibalism")}
+Parasitic creatures: ${getValue("parasites")}
+Monsters consuming people: ${getValue("monstersConsuming")}
+Transformation into monsters: ${getValue("monsterTransformation")}
+Disease / magical plague: ${getValue("diseasePlague")}
+
+Additional boundaries / triggers:
+${getValue("additionalBoundaries")}
+
+=== 5. Safety Tool ===
+Anyone can say PAUSE at any time.
+
+=== 6. Eberron Adventure Interests ===
+Pulp Adventure: ${getValue("pulpAdventure")}
+Noir Investigation: ${getValue("noirInvestigation")}
+Exploration: ${getValue("explorationInterest")}
+Political Intrigue: ${getValue("politicalIntrigue")}
+War Aftermath: ${getValue("warAftermath")}
+Horror: ${getValue("horrorInterest")}
+High Magic / Magitech: ${getValue("highMagic")}
+Bastions / Player Base Building: ${getValue("bastionsInterest")}
+
+=== 7. Spirit Trial ===
+Subclass I want to test:
+${getValue("subclassTest")}
+Trial Level Preference: ${getRadioValue("trialLevel")}
+
+=== 8. Early Sessions Pace ===
+${getRadioValue("pace")}
+
+=== 9. Leveling Style ===
+${getRadioValue("levelingStyle")}
+
+=== 10. Bastions / Headquarters ===
+Interested in a party base: ${getRadioValue("partyBase")}
+
+=== 11. Multiclassing ===
+Interested: ${getRadioValue("multiclassInterested")}
+Possible concept(s): ${getValue("multiclassConcepts")}
+
+=== 12. Economy & Loot Style ===
+${getRadioValue("economyStyle")}
+
+=== 13. Character Concept Prompts ===
+My character once was:
+${getValue("characterOnceWas")}
+
+How did they die?
+${getValue("howDidTheyDie")}
+
+If returned to life, what do they want most?
+${getValue("whatDoTheyWantMost")}
+
+Unfinished business tying them to the world:
+${getValue("unfinishedBusiness")}
+
+Something they fear about returning:
+${getValue("fearAboutReturning")}
+      `.trim();
+
+      const mailtoLink = `mailto:unwierdly@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      window.location.href = mailtoLink;
+    });
+  </script>
+</body>
+</html>
