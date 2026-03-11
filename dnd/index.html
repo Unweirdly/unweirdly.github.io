@@ -2,774 +2,926 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, viewport-fit=cover"
+  />
   <title>Dungeons & Dragons – Session 0</title>
+
+  <!-- Bootstrap 5 -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+
   <style>
     body {
-      font-family: Arial, sans-serif;
-      line-height: 1.5;
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 24px;
-      background: #f7f7f7;
-      color: #222;
+      background: #f6f7f9;
     }
 
-    .container {
+    .page-wrap {
+      max-width: 960px;
+    }
+
+    .form-card {
+      border: 0;
+      border-radius: 1rem;
+      box-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.08);
+    }
+
+    .section-card {
+      border: 1px solid #dee2e6;
+      border-radius: 1rem;
+      padding: 1rem;
       background: #fff;
-      padding: 24px;
-      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
     }
 
-    h1, h2, h3 {
-      margin-top: 1.2em;
+    .section-title {
+      font-weight: 700;
+      font-size: 1.05rem;
+      margin-bottom: 1rem;
     }
 
-    h1 {
-      margin-top: 0;
-    }
-
-    fieldset {
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      padding: 16px;
-      margin-bottom: 20px;
-    }
-
-    legend {
-      font-weight: bold;
-      padding: 0 8px;
-    }
-
-    label {
-      display: block;
-      margin: 8px 0;
-    }
-
-    .inline-group label {
-      display: inline-block;
-      margin-right: 18px;
-    }
-
-    input[type="text"],
-    textarea {
-      width: 100%;
-      max-width: 100%;
-      padding: 8px;
-      margin-top: 4px;
-      box-sizing: border-box;
-      border: 1px solid #bbb;
-      border-radius: 6px;
-      font-size: 14px;
-    }
-
-    textarea {
-      min-height: 80px;
-      resize: vertical;
-    }
-
-    .small-textarea {
-      min-height: 60px;
-    }
-
-    .boundary-row {
-      display: grid;
-      grid-template-columns: 1fr 220px;
-      gap: 12px;
-      align-items: center;
-      margin-bottom: 8px;
-    }
-
-    .boundary-row label {
-      margin: 0;
-    }
-
-    .boundary-row select {
-      padding: 8px;
-      border-radius: 6px;
-      border: 1px solid #bbb;
-    }
-
-    .note {
+    .note-box {
       background: #eef6ff;
-      padding: 12px;
       border-left: 4px solid #4a90e2;
-      margin-bottom: 20px;
-      border-radius: 6px;
+      border-radius: 0.75rem;
     }
 
-    button {
-      background: #4a2f6b;
-      color: white;
-      border: none;
-      padding: 12px 18px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 16px;
+    .option-card {
+      border: 1px solid #dee2e6;
+      border-radius: 0.75rem;
+      padding: 0.75rem 0.9rem;
+      background: #fff;
+      height: 100%;
     }
 
-    button:hover {
-      background: #37204f;
+    .option-card .form-check {
+      margin-bottom: 0;
     }
 
-    hr {
-      margin: 24px 0;
-      border: none;
-      border-top: 1px solid #ddd;
+    .sticky-submit {
+      position: sticky;
+      bottom: 0;
+      background: linear-gradient(to top, rgba(246, 247, 249, 0.98), rgba(246, 247, 249, 0.72));
+      padding-top: 0.75rem;
+      padding-bottom: calc(0.5rem + env(safe-area-inset-bottom, 0px));
+      z-index: 10;
+    }
+
+    .btn-purple {
+      background-color: #4a2f6b;
+      border-color: #4a2f6b;
+      color: #fff;
+    }
+
+    .btn-purple:hover,
+    .btn-purple:focus {
+      background-color: #37204f;
+      border-color: #37204f;
+      color: #fff;
+    }
+
+    @media (max-width: 575.98px) {
+      .form-card .card-body {
+        padding: 1rem;
+      }
+
+      h1 {
+        font-size: 1.75rem;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Dungeons & Dragons – Session 0</h1>
-    <p><strong>Comfort, Expectations & Campaign Briefing</strong></p>
-    <p><strong>Campaign Date Reference:</strong> March 11, 2026</p>
+  <div class="container py-3 py-md-4">
+    <div class="page-wrap mx-auto">
+      <div class="card form-card">
+        <div class="card-body p-3 p-md-4 p-lg-5">
 
-    <div class="note">
-      <strong>Campaign Overview</strong><br />
-      This campaign takes place in <strong>Eberron</strong>: a world of magical industry, political intrigue, pulp adventure, and noir mystery.<br /><br />
-      Your characters begin as souls on the edge of <strong>Dolurrh</strong>, facing trials to determine if they may return to the land of the living.
+          <header class="mb-4">
+            <h1 class="h2 mb-2">Dungeons &amp; Dragons – Session 0</h1>
+            <p class="fw-semibold mb-1">Comfort, Expectations &amp; Campaign Briefing</p>
+            <p class="mb-0"><strong>Campaign Date Reference:</strong> March 11, 2026</p>
+          </header>
+
+          <div class="note-box p-3 mb-4">
+            <p class="fw-bold mb-2">Campaign Overview</p>
+            <p class="mb-2">
+              This campaign takes place in <strong>Eberron</strong>: a world of magical industry,
+              political intrigue, pulp adventure, and noir mystery.
+            </p>
+            <p class="mb-0">
+              Your characters begin as souls on the edge of <strong>Dolurrh</strong>, facing trials
+              to determine if they may return to the land of the living.
+            </p>
+          </div>
+
+          <form id="session0Form">
+
+            <!-- 1. Player Information -->
+            <section class="section-card mb-4">
+              <div class="section-title">1. Player Information</div>
+
+              <div class="row g-3">
+                <div class="col-12 col-md-6">
+                  <label for="playerName" class="form-label">Player Name</label>
+                  <input type="text" class="form-control" id="playerName" name="playerName" />
+                </div>
+
+                <div class="col-12 col-md-6">
+                  <label for="pronouns" class="form-label">Preferred Pronouns (optional)</label>
+                  <input type="text" class="form-control" id="pronouns" name="pronouns" />
+                </div>
+              </div>
+
+              <div class="mt-4">
+                <h2 class="h6 mb-3">Preferred Playstyle (check all that apply)</h2>
+                <div class="row g-2">
+                  <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="option-card">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="playstyle" value="Combat" id="playstyleCombat" />
+                        <label class="form-check-label" for="playstyleCombat">Combat</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="option-card">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="playstyle" value="Roleplay" id="playstyleRoleplay" />
+                        <label class="form-check-label" for="playstyleRoleplay">Roleplay</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="option-card">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="playstyle" value="Exploration" id="playstyleExploration" />
+                        <label class="form-check-label" for="playstyleExploration">Exploration</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="option-card">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="playstyle" value="Puzzle solving" id="playstylePuzzle" />
+                        <label class="form-check-label" for="playstylePuzzle">Puzzle solving</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="option-card">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="playstyle" value="Social intrigue / politics" id="playstyleSocial" />
+                        <label class="form-check-label" for="playstyleSocial">Social intrigue / politics</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- 2. Table Expectations -->
+            <section class="section-card mb-4">
+              <div class="section-title">2. Table Expectations</div>
+
+              <div class="mb-4">
+                <h2 class="h6 mb-3">Preferred Tone</h2>
+                <div class="row g-2">
+                  <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="option-card">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="tone" value="Serious adventure" id="toneSerious" />
+                        <label class="form-check-label" for="toneSerious">Serious adventure</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="option-card">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="tone" value="Lighthearted adventure" id="toneLight" />
+                        <label class="form-check-label" for="toneLight">Lighthearted adventure</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="option-card">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="tone" value="Comedy / silliness" id="toneComedy" />
+                        <label class="form-check-label" for="toneComedy">Comedy / silliness</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="option-card">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="tone" value="Dark fantasy / grim" id="toneDark" />
+                        <label class="form-check-label" for="toneDark">Dark fantasy / grim</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="option-card">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="tone" value="Mix of everything" id="toneMix" />
+                        <label class="form-check-label" for="toneMix">Mix of everything</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-4">
+                <h2 class="h6 mb-3">Favorite Game Elements (check or rank)</h2>
+                <div class="row g-2">
+                  <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="option-card">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="gameElements" value="Combat encounters" id="geCombat" />
+                        <label class="form-check-label" for="geCombat">Combat encounters</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="option-card">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="gameElements" value="Story & roleplay" id="geStory" />
+                        <label class="form-check-label" for="geStory">Story &amp; roleplay</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="option-card">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="gameElements" value="Exploration & discovery" id="geExplore" />
+                        <label class="form-check-label" for="geExplore">Exploration &amp; discovery</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="option-card">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="gameElements" value="Character development & drama" id="geDrama" />
+                        <label class="form-check-label" for="geDrama">Character development &amp; drama</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="option-card">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="gameElements" value="Mystery solving" id="geMystery" />
+                        <label class="form-check-label" for="geMystery">Mystery solving</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="option-card">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="gameElements" value="Strategy & clever tactics" id="geStrategy" />
+                        <label class="form-check-label" for="geStrategy">Strategy &amp; clever tactics</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-4">
+                <h2 class="h6 mb-3">Player vs. Player (PvP)</h2>
+                <div class="row g-2">
+                  <div class="col-12 col-lg-4">
+                    <div class="option-card">
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="pvp" value="Allowed (with good reason)" id="pvp1" />
+                        <label class="form-check-label" for="pvp1">Allowed (with good reason)</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-lg-4">
+                    <div class="option-card">
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="pvp" value="Only with explicit consent" id="pvp2" />
+                        <label class="form-check-label" for="pvp2">Only with explicit consent</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-lg-4">
+                    <div class="option-card">
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="pvp" value="Not allowed" id="pvp3" />
+                        <label class="form-check-label" for="pvp3">Not allowed</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-4">
+                <h2 class="h6 mb-3">Character Death</h2>
+                <div class="row g-2">
+                  <div class="col-12 col-lg-4">
+                    <div class="option-card">
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="characterDeath" value="Rare / very hard to die" id="death1" />
+                        <label class="form-check-label" for="death1">Rare / very hard to die</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-lg-4">
+                    <div class="option-card">
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="characterDeath" value="Possible and realistic" id="death2" />
+                        <label class="form-check-label" for="death2">Possible and realistic</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-lg-4">
+                    <div class="option-card">
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="characterDeath" value="High risk / lethal campaign" id="death3" />
+                        <label class="form-check-label" for="death3">High risk / lethal campaign</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <h2 class="h6 mb-3">Rules Approach</h2>
+                <div class="row g-2">
+                  <div class="col-12 col-lg-4">
+                    <div class="option-card">
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="rulesApproach" value="Strict Rules as Written (RAW)" id="rules1" />
+                        <label class="form-check-label" for="rules1">Strict Rules as Written (RAW)</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-lg-4">
+                    <div class="option-card">
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="rulesApproach" value="Flexible — fun & story first" id="rules2" />
+                        <label class="form-check-label" for="rules2">Flexible — fun &amp; story first</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-lg-4">
+                    <div class="option-card">
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="rulesApproach" value="Narrative-first, rules second" id="rules3" />
+                        <label class="form-check-label" for="rules3">Narrative-first, rules second</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- 3. Rules & Allowed Sources -->
+            <section class="section-card mb-4">
+              <div class="section-title">3. Rules &amp; Allowed Sources</div>
+
+              <p><strong>Edition:</strong> D&amp;D 2024–2025 rules (5.5E / One D&amp;D)</p>
+
+              <p class="fw-semibold mb-2">Always Allowed Books</p>
+              <ul>
+                <li>Player’s Handbook (2024)</li>
+                <li>Dungeon Master’s Guide (2024)</li>
+                <li>Eberron: Rising from the Last War</li>
+                <li>Eberron: Forge of the Artificer</li>
+              </ul>
+
+              <p class="fw-semibold mb-2">Optional / Group Vote</p>
+              <ul>
+                <li>Tasha’s Cauldron of Everything</li>
+                <li>Xanathar’s Guide to Everything</li>
+                <li>Other supplements (approval required)</li>
+              </ul>
+
+              <p class="fw-semibold mb-2">Race Notes</p>
+              <ul>
+                <li><strong>Fairy</strong> not allowed by default</li>
+                <li>Modified version (flight at higher levels) possible case-by-case</li>
+                <li>Creative concepts very welcome — strong story = negotiable</li>
+              </ul>
+
+              <p class="fw-semibold mb-2">Restricted Spells (banned by default)</p>
+              <ul class="mb-2">
+                <li>Wish</li>
+                <li>Silvery Barbs</li>
+                <li>Synaptic Static (or similar no-save control effects)</li>
+                <li>Simulacrum</li>
+              </ul>
+
+              <p class="mb-0">Access may be unlocked later via rare quests / story in some economy modes.</p>
+            </section>
+
+            <!-- 4. Comfort & Boundaries -->
+            <section class="section-card mb-4">
+              <div class="section-title">4. Comfort &amp; Boundaries</div>
+
+              <p class="mb-3">
+                <strong>Legend</strong><br />
+                ❌ = Do not include<br />
+                ⚠ = Fade to black / brief mention only<br />
+                ✔ = Okay to include (handled sensitively)
+              </p>
+
+              <h2 class="h6 mb-3">Violence &amp; Physical Harm</h2>
+
+              <div class="row g-3 mb-2">
+                <div class="col-12 col-md-7">
+                  <label class="form-label mb-md-0" for="generalViolence">General violence</label>
+                </div>
+                <div class="col-12 col-md-5">
+                  <select class="form-select" id="generalViolence" name="generalViolence">
+                    <option value="">Select</option>
+                    <option value="❌ Do not include">❌ Do not include</option>
+                    <option value="⚠ Fade to black / brief mention only">⚠ Fade to black / brief mention only</option>
+                    <option value="✔ Okay to include">✔ Okay to include</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="row g-3 mb-2">
+                <div class="col-12 col-md-7">
+                  <label class="form-label mb-md-0" for="graphicInjury">Graphic injury descriptions</label>
+                </div>
+                <div class="col-12 col-md-5">
+                  <select class="form-select" id="graphicInjury" name="graphicInjury">
+                    <option value="">Select</option>
+                    <option value="❌ Do not include">❌ Do not include</option>
+                    <option value="⚠ Fade to black / brief mention only">⚠ Fade to black / brief mention only</option>
+                    <option value="✔ Okay to include">✔ Okay to include</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="row g-3 mb-2">
+                <div class="col-12 col-md-7">
+                  <label class="form-label mb-md-0" for="mutilation">Mutilation / dismemberment</label>
+                </div>
+                <div class="col-12 col-md-5">
+                  <select class="form-select" id="mutilation" name="mutilation">
+                    <option value="">Select</option>
+                    <option value="❌ Do not include">❌ Do not include</option>
+                    <option value="⚠ Fade to black / brief mention only">⚠ Fade to black / brief mention only</option>
+                    <option value="✔ Okay to include">✔ Okay to include</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="row g-3 mb-2">
+                <div class="col-12 col-md-7">
+                  <label class="form-label mb-md-0" for="torture">Torture</label>
+                </div>
+                <div class="col-12 col-md-5">
+                  <select class="form-select" id="torture" name="torture">
+                    <option value="">Select</option>
+                    <option value="❌ Do not include">❌ Do not include</option>
+                    <option value="⚠ Fade to black / brief mention only">⚠ Fade to black / brief mention only</option>
+                    <option value="✔ Okay to include">✔ Okay to include</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="row g-3 mb-2">
+                <div class="col-12 col-md-7">
+                  <label class="form-label mb-md-0" for="execution">Execution / ritual sacrifice</label>
+                </div>
+                <div class="col-12 col-md-5">
+                  <select class="form-select" id="execution" name="execution">
+                    <option value="">Select</option>
+                    <option value="❌ Do not include">❌ Do not include</option>
+                    <option value="⚠ Fade to black / brief mention only">⚠ Fade to black / brief mention only</option>
+                    <option value="✔ Okay to include">✔ Okay to include</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="row g-3 mb-2">
+                <div class="col-12 col-md-7">
+                  <label class="form-label mb-md-0" for="undeadDesecration">Undead &amp; desecration themes</label>
+                </div>
+                <div class="col-12 col-md-5">
+                  <select class="form-select" id="undeadDesecration" name="undeadDesecration">
+                    <option value="">Select</option>
+                    <option value="❌ Do not include">❌ Do not include</option>
+                    <option value="⚠ Fade to black / brief mention only">⚠ Fade to black / brief mention only</option>
+                    <option value="✔ Okay to include">✔ Okay to include</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="row g-3 mb-2">
+                <div class="col-12 col-md-7">
+                  <label class="form-label mb-md-0" for="bodyHorror">Body horror / transformation</label>
+                </div>
+                <div class="col-12 col-md-5">
+                  <select class="form-select" id="bodyHorror" name="bodyHorror">
+                    <option value="">Select</option>
+                    <option value="❌ Do not include">❌ Do not include</option>
+                    <option value="⚠ Fade to black / brief mention only">⚠ Fade to black / brief mention only</option>
+                    <option value="✔ Okay to include">✔ Okay to include</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="row g-3 mb-4">
+                <div class="col-12 col-md-7">
+                  <label class="form-label mb-md-0" for="magicalCorruption">Magical corruption / mutation</label>
+                </div>
+                <div class="col-12 col-md-5">
+                  <select class="form-select" id="magicalCorruption" name="magicalCorruption">
+                    <option value="">Select</option>
+                    <option value="❌ Do not include">❌ Do not include</option>
+                    <option value="⚠ Fade to black / brief mention only">⚠ Fade to black / brief mention only</option>
+                    <option value="✔ Okay to include">✔ Okay to include</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <label for="additionalBoundaries" class="form-label">Additional boundaries / triggers</label>
+                <textarea class="form-control" id="additionalBoundaries" name="additionalBoundaries" rows="4"></textarea>
+              </div>
+            </section>
+
+            <!-- 5. Safety Tool -->
+            <section class="section-card mb-4">
+              <div class="section-title">5. Safety Tool</div>
+              <p>Anyone can say <strong>PAUSE</strong> at any time.</p>
+              <p>Game stops immediately — no questions asked.</p>
+              <p>We adjust, skip, or break until everyone is comfortable.</p>
+              <p class="mb-0">Private DM check-ins always welcome.</p>
+            </section>
+
+            <!-- 6. Eberron Adventure Interests -->
+            <section class="section-card mb-4">
+              <div class="section-title">6. Eberron Adventure Interests</div>
+
+              <div class="row g-3 mb-2">
+                <div class="col-12 col-md-7">
+                  <label class="form-label mb-md-0" for="pulpAdventure">Pulp Adventure (airships, daring escapes, lightning rail fights)</label>
+                </div>
+                <div class="col-12 col-md-5">
+                  <select class="form-select" id="pulpAdventure" name="pulpAdventure">
+                    <option value="">Select</option>
+                    <option value="Yes">Yes</option>
+                    <option value="Maybe">Maybe</option>
+                    <option value="No">No</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="row g-3 mb-2">
+                <div class="col-12 col-md-7">
+                  <label class="form-label mb-md-0" for="noirInvestigation">Noir Investigation (mysteries, conspiracies, crime)</label>
+                </div>
+                <div class="col-12 col-md-5">
+                  <select class="form-select" id="noirInvestigation" name="noirInvestigation">
+                    <option value="">Select</option>
+                    <option value="Yes">Yes</option>
+                    <option value="Maybe">Maybe</option>
+                    <option value="No">No</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="row g-3 mb-2">
+                <div class="col-12 col-md-7">
+                  <label class="form-label mb-md-0" for="explorationInterest">Exploration (lost ruins, Xen’drik, ancient secrets)</label>
+                </div>
+                <div class="col-12 col-md-5">
+                  <select class="form-select" id="explorationInterest" name="explorationInterest">
+                    <option value="">Select</option>
+                    <option value="Yes">Yes</option>
+                    <option value="Maybe">Maybe</option>
+                    <option value="No">No</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="row g-3 mb-2">
+                <div class="col-12 col-md-7">
+                  <label class="form-label mb-md-0" for="politicalIntrigue">Political Intrigue (Houses, espionage, diplomacy)</label>
+                </div>
+                <div class="col-12 col-md-5">
+                  <select class="form-select" id="politicalIntrigue" name="politicalIntrigue">
+                    <option value="">Select</option>
+                    <option value="Yes">Yes</option>
+                    <option value="Maybe">Maybe</option>
+                    <option value="No">No</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="row g-3 mb-2">
+                <div class="col-12 col-md-7">
+                  <label class="form-label mb-md-0" for="warAftermath">War Aftermath (Last War scars &amp; stories)</label>
+                </div>
+                <div class="col-12 col-md-5">
+                  <select class="form-select" id="warAftermath" name="warAftermath">
+                    <option value="">Select</option>
+                    <option value="Yes">Yes</option>
+                    <option value="Maybe">Maybe</option>
+                    <option value="No">No</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="row g-3 mb-2">
+                <div class="col-12 col-md-7">
+                  <label class="form-label mb-md-0" for="horrorInterest">Horror (Daelkyr, madness, cursed items)</label>
+                </div>
+                <div class="col-12 col-md-5">
+                  <select class="form-select" id="horrorInterest" name="horrorInterest">
+                    <option value="">Select</option>
+                    <option value="Yes">Yes</option>
+                    <option value="Maybe">Maybe</option>
+                    <option value="No">No</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="row g-3 mb-2">
+                <div class="col-12 col-md-7">
+                  <label class="form-label mb-md-0" for="highMagic">High Magic / Magitech (artificers, lightning rail, industry)</label>
+                </div>
+                <div class="col-12 col-md-5">
+                  <select class="form-select" id="highMagic" name="highMagic">
+                    <option value="">Select</option>
+                    <option value="Yes">Yes</option>
+                    <option value="Maybe">Maybe</option>
+                    <option value="No">No</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="row g-3">
+                <div class="col-12 col-md-7">
+                  <label class="form-label mb-md-0" for="bastionsInterest">Bastions / Player Base Building</label>
+                </div>
+                <div class="col-12 col-md-5">
+                  <select class="form-select" id="bastionsInterest" name="bastionsInterest">
+                    <option value="">Select</option>
+                    <option value="Yes">Yes</option>
+                    <option value="Maybe">Maybe</option>
+                    <option value="No">No</option>
+                  </select>
+                </div>
+              </div>
+            </section>
+
+            <!-- 7. Spirit Trial -->
+            <section class="section-card mb-4">
+              <div class="section-title">7. Spirit Trial (Starting Experience)</div>
+
+              <p>Safe tutorial in the Spirit World near Dolurrh — experiment with classes &amp; mechanics.</p>
+
+              <div class="mb-4">
+                <label for="subclassTest" class="form-label">Subclass I want to test</label>
+                <textarea class="form-control" id="subclassTest" name="subclassTest" rows="3"></textarea>
+              </div>
+
+              <h2 class="h6 mb-3">Trial Level Preference</h2>
+              <div class="row g-2">
+                <div class="col-12 col-lg-4">
+                  <div class="option-card">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="trialLevel" value="Level 1 – Basics" id="trial1" />
+                      <label class="form-check-label" for="trial1">Level 1 – Basics</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-lg-4">
+                  <div class="option-card">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="trialLevel" value="Level 4 – Full subclass feel" id="trial2" />
+                      <label class="form-check-label" for="trial2">Level 4 – Full subclass feel</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-lg-4">
+                  <div class="option-card">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="trialLevel" value="Level 6 – Advanced / tougher challenges" id="trial3" />
+                      <label class="form-check-label" for="trial3">Level 6 – Advanced / tougher challenges</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <p class="mt-3 mb-0">Final character chosen <strong>after</strong> trial.</p>
+            </section>
+
+            <!-- 8-13 -->
+            <section class="section-card mb-4">
+              <div class="section-title">8. Early Sessions Pace</div>
+              <div class="row g-2">
+                <div class="col-12 col-lg-4">
+                  <div class="option-card">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="pace" value="Slow & gentle introduction" id="pace1" />
+                      <label class="form-check-label" for="pace1">Slow &amp; gentle introduction</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-lg-4">
+                  <div class="option-card">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="pace" value="Balanced learning curve" id="pace2" />
+                      <label class="form-check-label" for="pace2">Balanced learning curve</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-lg-4">
+                  <div class="option-card">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="pace" value="Jump straight into action" id="pace3" />
+                      <label class="form-check-label" for="pace3">Jump straight into action</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="section-card mb-4">
+              <div class="section-title">9. Leveling Style</div>
+              <div class="row g-2">
+                <div class="col-12 col-lg-6">
+                  <div class="option-card">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="levelingStyle" value="XP (earned from encounters, challenges, victories)" id="level1" />
+                      <label class="form-check-label" for="level1">XP (earned from encounters, challenges, victories)</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-lg-6">
+                  <div class="option-card">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="levelingStyle" value="Milestone (at major story beats — may include special rewards)" id="level2" />
+                      <label class="form-check-label" for="level2">Milestone (at major story beats — may include special rewards)</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="section-card mb-4">
+              <div class="section-title">10. Bastions / Headquarters</div>
+              <p>Interested in a party base (fortress, airship, workshop, guild hall, etc.)?</p>
+              <div class="row g-2">
+                <div class="col-12 col-sm-4">
+                  <div class="option-card">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="partyBase" value="Yes" id="baseYes" />
+                      <label class="form-check-label" for="baseYes">Yes</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-4">
+                  <div class="option-card">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="partyBase" value="Maybe" id="baseMaybe" />
+                      <label class="form-check-label" for="baseMaybe">Maybe</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-4">
+                  <div class="option-card">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="partyBase" value="No" id="baseNo" />
+                      <label class="form-check-label" for="baseNo">No</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="section-card mb-4">
+              <div class="section-title">11. Multiclassing</div>
+              <p>Allowed with <strong>story justification</strong> — discuss with DM early.</p>
+
+              <div class="row g-2 mb-3">
+                <div class="col-12 col-sm-4">
+                  <div class="option-card">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="multiclassInterested" value="Yes" id="multiYes" />
+                      <label class="form-check-label" for="multiYes">Yes</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-4">
+                  <div class="option-card">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="multiclassInterested" value="Maybe" id="multiMaybe" />
+                      <label class="form-check-label" for="multiMaybe">Maybe</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-4">
+                  <div class="option-card">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="multiclassInterested" value="No" id="multiNo" />
+                      <label class="form-check-label" for="multiNo">No</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <label for="multiclassConcepts" class="form-label">Possible concept(s)</label>
+              <input type="text" class="form-control" id="multiclassConcepts" name="multiclassConcepts" />
+            </section>
+
+            <section class="section-card mb-4">
+              <div class="section-title">12. Economy &amp; Loot Style</div>
+
+              <div class="mb-3">
+                <p class="mb-1"><strong>A – Crafting &amp; Business</strong> (classic Eberron)</p>
+                <p class="mb-0">Trade, contracts, Houses, Bastions → build influence &amp; gear. Restricted spells <strong>do not exist</strong> here.</p>
+              </div>
+
+              <div class="mb-3">
+                <p class="mb-1"><strong>B – Market Economy</strong></p>
+                <p class="mb-0">Big cities = magic markets. Gold buys items. Restricted spells = very rare loot only.</p>
+              </div>
+
+              <div class="mb-3">
+                <p class="mb-1"><strong>C – Story / Milestone Rewards</strong></p>
+                <p class="mb-0">Items via quests, discoveries, epic moments. Restricted spells &amp; legendaries possible through arcs.</p>
+              </div>
+
+              <h2 class="h6 mb-3">My choice</h2>
+              <div class="row g-2">
+                <div class="col-12 col-lg-4">
+                  <div class="option-card">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="economyStyle" value="A – Crafting & Business" id="econA" />
+                      <label class="form-check-label" for="econA">A – Crafting &amp; Business</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-lg-4">
+                  <div class="option-card">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="economyStyle" value="B – Market Economy" id="econB" />
+                      <label class="form-check-label" for="econB">B – Market Economy</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-lg-4">
+                  <div class="option-card">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="economyStyle" value="C – Story / Milestone" id="econC" />
+                      <label class="form-check-label" for="econC">C – Story / Milestone</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="section-card mb-4">
+              <div class="section-title">13. Character Concept Prompts</div>
+
+              <div class="mb-3">
+                <label for="characterOnceWas" class="form-label">My character once was</label>
+                <textarea class="form-control" id="characterOnceWas" name="characterOnceWas" rows="3"></textarea>
+              </div>
+
+              <div class="mb-3">
+                <label for="howDidTheyDie" class="form-label">How did they die?</label>
+                <textarea class="form-control" id="howDidTheyDie" name="howDidTheyDie" rows="3"></textarea>
+              </div>
+
+              <div class="mb-3">
+                <label for="whatDoTheyWantMost" class="form-label">If returned to life, what do they want most?</label>
+                <textarea class="form-control" id="whatDoTheyWantMost" name="whatDoTheyWantMost" rows="3"></textarea>
+              </div>
+
+              <div class="mb-3">
+                <label for="unfinishedBusiness" class="form-label">Unfinished business tying them to the world</label>
+                <textarea class="form-control" id="unfinishedBusiness" name="unfinishedBusiness" rows="3"></textarea>
+              </div>
+
+              <div class="mb-0">
+                <label for="fearAboutReturning" class="form-label">Something they fear about returning</label>
+                <textarea class="form-control" id="fearAboutReturning" name="fearAboutReturning" rows="3"></textarea>
+              </div>
+            </section>
+
+            <div class="sticky-submit">
+              <button type="submit" class="btn btn-purple btn-lg w-100">
+                Submit
+              </button>
+            </div>
+          </form>
+
+          <hr class="my-4" />
+          <p class="mb-0">Thank you! Excited for an unforgettable Eberron journey together.</p>
+        </div>
+      </div>
     </div>
-
-    <form id="session0Form">
-      <fieldset>
-        <legend>1. Player Information</legend>
-
-        <label>
-          Player Name:
-          <input type="text" name="playerName" />
-        </label>
-
-        <label>
-          Preferred Pronouns (optional):
-          <input type="text" name="pronouns" />
-        </label>
-
-        <h3>Preferred Playstyle (check all that apply)</h3>
-        <div class="inline-group">
-          <label><input type="checkbox" name="playstyle" value="Combat" /> Combat</label>
-          <label><input type="checkbox" name="playstyle" value="Roleplay" /> Roleplay</label>
-          <label><input type="checkbox" name="playstyle" value="Exploration" /> Exploration</label>
-          <label><input type="checkbox" name="playstyle" value="Puzzle solving" /> Puzzle solving</label>
-          <label><input type="checkbox" name="playstyle" value="Social intrigue / politics" /> Social intrigue / politics</label>
-        </div>
-      </fieldset>
-
-      <fieldset>
-        <legend>2. Table Expectations</legend>
-
-        <h3>Preferred Tone</h3>
-        <div class="inline-group">
-          <label><input type="checkbox" name="tone" value="Serious adventure" /> Serious adventure</label>
-          <label><input type="checkbox" name="tone" value="Lighthearted adventure" /> Lighthearted adventure</label>
-          <label><input type="checkbox" name="tone" value="Comedy / silliness" /> Comedy / silliness</label>
-          <label><input type="checkbox" name="tone" value="Dark fantasy / grim" /> Dark fantasy / grim</label>
-          <label><input type="checkbox" name="tone" value="Mix of everything" /> Mix of everything</label>
-        </div>
-
-        <h3>Favorite Game Elements (check or rank)</h3>
-        <div class="inline-group">
-          <label><input type="checkbox" name="gameElements" value="Combat encounters" /> Combat encounters</label>
-          <label><input type="checkbox" name="gameElements" value="Story & roleplay" /> Story & roleplay</label>
-          <label><input type="checkbox" name="gameElements" value="Exploration & discovery" /> Exploration & discovery</label>
-          <label><input type="checkbox" name="gameElements" value="Character development & drama" /> Character development & drama</label>
-          <label><input type="checkbox" name="gameElements" value="Mystery solving" /> Mystery solving</label>
-          <label><input type="checkbox" name="gameElements" value="Strategy & clever tactics" /> Strategy & clever tactics</label>
-        </div>
-
-        <h3>Player vs. Player (PvP)</h3>
-        <div class="inline-group">
-          <label><input type="radio" name="pvp" value="Allowed (with good reason)" /> Allowed (with good reason)</label>
-          <label><input type="radio" name="pvp" value="Only with explicit consent" /> Only with explicit consent</label>
-          <label><input type="radio" name="pvp" value="Not allowed" /> Not allowed</label>
-        </div>
-
-        <h3>Character Death</h3>
-        <div class="inline-group">
-          <label><input type="radio" name="characterDeath" value="Rare / very hard to die" /> Rare / very hard to die</label>
-          <label><input type="radio" name="characterDeath" value="Possible and realistic" /> Possible and realistic</label>
-          <label><input type="radio" name="characterDeath" value="High risk / lethal campaign" /> High risk / lethal campaign</label>
-        </div>
-
-        <h3>Rules Approach</h3>
-        <div class="inline-group">
-          <label><input type="radio" name="rulesApproach" value="Strict Rules as Written (RAW)" /> Strict Rules as Written (RAW)</label>
-          <label><input type="radio" name="rulesApproach" value="Flexible — fun & story first" /> Flexible — fun & story first</label>
-          <label><input type="radio" name="rulesApproach" value="Narrative-first, rules second" /> Narrative-first, rules second</label>
-        </div>
-      </fieldset>
-
-      <fieldset>
-        <legend>3. Rules & Allowed Sources</legend>
-
-        <p><strong>Edition:</strong> D&amp;D 2024–2025 rules (5.5E / One D&amp;D)</p>
-
-        <p><strong>Always Allowed Books</strong></p>
-        <ul>
-          <li>Player’s Handbook (2024)</li>
-          <li>Dungeon Master’s Guide (2024)</li>
-          <li>Eberron: Rising from the Last War</li>
-          <li>Eberron: Forge of the Artificer</li>
-        </ul>
-
-        <p><strong>Optional / Group Vote</strong></p>
-        <ul>
-          <li>Tasha’s Cauldron of Everything</li>
-          <li>Xanathar’s Guide to Everything</li>
-          <li>Other supplements (approval required)</li>
-        </ul>
-
-        <p><strong>Race Notes</strong></p>
-        <ul>
-          <li><strong>Fairy</strong> not allowed by default</li>
-          <li>Modified version (flight at higher levels) possible case-by-case</li>
-          <li>Creative concepts very welcome — strong story = negotiable</li>
-        </ul>
-
-        <p><strong>Restricted Spells (banned by default)</strong></p>
-        <ul>
-          <li>Wish</li>
-          <li>Silvery Barbs</li>
-          <li>Synaptic Static (or similar no-save control effects)</li>
-          <li>Simulacrum</li>
-        </ul>
-
-        <p>Access may be unlocked later via rare quests / story in some economy modes.</p>
-      </fieldset>
-
-      <fieldset>
-        <legend>4. Comfort & Boundaries</legend>
-
-        <p><strong>Legend</strong><br />
-        ❌ = Do not include<br />
-        ⚠ = Fade to black / brief mention only<br />
-        ✔ = Okay to include (handled sensitively)</p>
-
-        <h3>Violence & Physical Harm</h3>
-        <div class="boundary-row">
-          <label for="generalViolence">General violence</label>
-          <select id="generalViolence" name="generalViolence">
-            <option value="">Select</option>
-            <option value="❌ Do not include">❌ Do not include</option>
-            <option value="⚠ Fade to black / brief mention only">⚠ Fade to black / brief mention only</option>
-            <option value="✔ Okay to include">✔ Okay to include</option>
-          </select>
-        </div>
-        <div class="boundary-row">
-          <label for="graphicInjury">Graphic injury descriptions</label>
-          <select id="graphicInjury" name="graphicInjury">
-            <option value="">Select</option>
-            <option value="❌ Do not include">❌ Do not include</option>
-            <option value="⚠ Fade to black / brief mention only">⚠ Fade to black / brief mention only</option>
-            <option value="✔ Okay to include">✔ Okay to include</option>
-          </select>
-        </div>
-        <div class="boundary-row">
-          <label for="mutilation">Mutilation / dismemberment</label>
-          <select id="mutilation" name="mutilation">
-            <option value="">Select</option>
-            <option value="❌ Do not include">❌ Do not include</option>
-            <option value="⚠ Fade to black / brief mention only">⚠ Fade to black / brief mention only</option>
-            <option value="✔ Okay to include">✔ Okay to include</option>
-          </select>
-        </div>
-        <div class="boundary-row">
-          <label for="torture">Torture</label>
-          <select id="torture" name="torture">
-            <option value="">Select</option>
-            <option value="❌ Do not include">❌ Do not include</option>
-            <option value="⚠ Fade to black / brief mention only">⚠ Fade to black / brief mention only</option>
-            <option value="✔ Okay to include">✔ Okay to include</option>
-          </select>
-        </div>
-        <div class="boundary-row">
-          <label for="execution">Execution / ritual sacrifice</label>
-          <select id="execution" name="execution">
-            <option value="">Select</option>
-            <option value="❌ Do not include">❌ Do not include</option>
-            <option value="⚠ Fade to black / brief mention only">⚠ Fade to black / brief mention only</option>
-            <option value="✔ Okay to include">✔ Okay to include</option>
-          </select>
-        </div>
-        <div class="boundary-row">
-          <label for="undeadDesecration">Undead & desecration themes</label>
-          <select id="undeadDesecration" name="undeadDesecration">
-            <option value="">Select</option>
-            <option value="❌ Do not include">❌ Do not include</option>
-            <option value="⚠ Fade to black / brief mention only">⚠ Fade to black / brief mention only</option>
-            <option value="✔ Okay to include">✔ Okay to include</option>
-          </select>
-        </div>
-        <div class="boundary-row">
-          <label for="bodyHorror">Body horror / transformation</label>
-          <select id="bodyHorror" name="bodyHorror">
-            <option value="">Select</option>
-            <option value="❌ Do not include">❌ Do not include</option>
-            <option value="⚠ Fade to black / brief mention only">⚠ Fade to black / brief mention only</option>
-            <option value="✔ Okay to include">✔ Okay to include</option>
-          </select>
-        </div>
-        <div class="boundary-row">
-          <label for="magicalCorruption">Magical corruption / mutation</label>
-          <select id="magicalCorruption" name="magicalCorruption">
-            <option value="">Select</option>
-            <option value="❌ Do not include">❌ Do not include</option>
-            <option value="⚠ Fade to black / brief mention only">⚠ Fade to black / brief mention only</option>
-            <option value="✔ Okay to include">✔ Okay to include</option>
-          </select>
-        </div>
-
-        <h3>War & Atrocity Themes</h3>
-        <div class="boundary-row">
-          <label for="warCrimes">War crimes</label>
-          <select id="warCrimes" name="warCrimes">
-            <option value="">Select</option>
-            <option value="❌ Do not include">❌ Do not include</option>
-            <option value="⚠ Fade to black / brief mention only">⚠ Fade to black / brief mention only</option>
-            <option value="✔ Okay to include">✔ Okay to include</option>
-          </select>
-        </div>
-        <div class="boundary-row">
-          <label for="genocide">Genocide / extermination</label>
-          <select id="genocide" name="genocide">
-            <option value="">Select</option>
-            <option value="❌ Do not include">❌ Do not include</option>
-            <option value="⚠ Fade to black / brief mention only">⚠ Fade to black / brief mention only</option>
-            <option value="✔ Okay to include">✔ Okay to include</option>
-          </select>
-        </div>
-        <div class="boundary-row">
-          <label for="slavery">Slavery</label>
-          <select id="slavery" name="slavery">
-            <option value="">Select</option>
-            <option value="❌ Do not include">❌ Do not include</option>
-            <option value="⚠ Fade to black / brief mention only">⚠ Fade to black / brief mention only</option>
-            <option value="✔ Okay to include">✔ Okay to include</option>
-          </select>
-        </div>
-        <div class="boundary-row">
-          <label for="forcedLabor">Forced labor / prison camps</label>
-          <select id="forcedLabor" name="forcedLabor">
-            <option value="">Select</option>
-            <option value="❌ Do not include">❌ Do not include</option>
-            <option value="⚠ Fade to black / brief mention only">⚠ Fade to black / brief mention only</option>
-            <option value="✔ Okay to include">✔ Okay to include</option>
-          </select>
-        </div>
-        <div class="boundary-row">
-          <label for="politicalOppression">Political oppression</label>
-          <select id="politicalOppression" name="politicalOppression">
-            <option value="">Select</option>
-            <option value="❌ Do not include">❌ Do not include</option>
-            <option value="⚠ Fade to black / brief mention only">⚠ Fade to black / brief mention only</option>
-            <option value="✔ Okay to include">✔ Okay to include</option>
-          </select>
-        </div>
-        <div class="boundary-row">
-          <label for="fascistRefs">Fascist ideology references</label>
-          <select id="fascistRefs" name="fascistRefs">
-            <option value="">Select</option>
-            <option value="❌ Do not include">❌ Do not include</option>
-            <option value="⚠ Fade to black / brief mention only">⚠ Fade to black / brief mention only</option>
-            <option value="✔ Okay to include">✔ Okay to include</option>
-          </select>
-        </div>
-        <div class="boundary-row">
-          <label for="massCasualties">Mass civilian casualties</label>
-          <select id="massCasualties" name="massCasualties">
-            <option value="">Select</option>
-            <option value="❌ Do not include">❌ Do not include</option>
-            <option value="⚠ Fade to black / brief mention only">⚠ Fade to black / brief mention only</option>
-            <option value="✔ Okay to include">✔ Okay to include</option>
-          </select>
-        </div>
-
-        <h3>Psychological Themes</h3>
-        <div class="boundary-row">
-          <label for="mindControl">Mind control / loss of agency</label>
-          <select id="mindControl" name="mindControl">
-            <option value="">Select</option>
-            <option value="❌ Do not include">❌ Do not include</option>
-            <option value="⚠ Fade to black / brief mention only">⚠ Fade to black / brief mention only</option>
-            <option value="✔ Okay to include">✔ Okay to include</option>
-          </select>
-        </div>
-        <div class="boundary-row">
-          <label for="possession">Possession</label>
-          <select id="possession" name="possession">
-            <option value="">Select</option>
-            <option value="❌ Do not include">❌ Do not include</option>
-            <option value="⚠ Fade to black / brief mention only">⚠ Fade to black / brief mention only</option>
-            <option value="✔ Okay to include">✔ Okay to include</option>
-          </select>
-        </div>
-        <div class="boundary-row">
-          <label for="madness">Madness / psychological horror</label>
-          <select id="madness" name="madness">
-            <option value="">Select</option>
-            <option value="❌ Do not include">❌ Do not include</option>
-            <option value="⚠ Fade to black / brief mention only">⚠ Fade to black / brief mention only</option>
-            <option value="✔ Okay to include">✔ Okay to include</option>
-          </select>
-        </div>
-        <div class="boundary-row">
-          <label for="gaslighting">Gaslighting / manipulation</label>
-          <select id="gaslighting" name="gaslighting">
-            <option value="">Select</option>
-            <option value="❌ Do not include">❌ Do not include</option>
-            <option value="⚠ Fade to black / brief mention only">⚠ Fade to black / brief mention only</option>
-            <option value="✔ Okay to include">✔ Okay to include</option>
-          </select>
-        </div>
-        <div class="boundary-row">
-          <label for="isolation">Isolation / imprisonment</label>
-          <select id="isolation" name="isolation">
-            <option value="">Select</option>
-            <option value="❌ Do not include">❌ Do not include</option>
-            <option value="⚠ Fade to black / brief mention only">⚠ Fade to black / brief mention only</option>
-            <option value="✔ Okay to include">✔ Okay to include</option>
-          </select>
-        </div>
-
-        <h3>Sensitive Topics</h3>
-        <div class="boundary-row">
-          <label for="harmChildren">Harm to children</label>
-          <select id="harmChildren" name="harmChildren">
-            <option value="">Select</option>
-            <option value="❌ Do not include">❌ Do not include</option>
-            <option value="⚠ Fade to black / brief mention only">⚠ Fade to black / brief mention only</option>
-            <option value="✔ Okay to include">✔ Okay to include</option>
-          </select>
-        </div>
-        <div class="boundary-row">
-          <label for="harmAnimals">Harm to animals</label>
-          <select id="harmAnimals" name="harmAnimals">
-            <option value="">Select</option>
-            <option value="❌ Do not include">❌ Do not include</option>
-            <option value="⚠ Fade to black / brief mention only">⚠ Fade to black / brief mention only</option>
-            <option value="✔ Okay to include">✔ Okay to include</option>
-          </select>
-        </div>
-        <div class="boundary-row">
-          <label for="romance">Romantic / intimate relationships</label>
-          <select id="romance" name="romance">
-            <option value="">Select</option>
-            <option value="❌ Do not include">❌ Do not include</option>
-            <option value="⚠ Fade to black / brief mention only">⚠ Fade to black / brief mention only</option>
-            <option value="✔ Okay to include">✔ Okay to include</option>
-          </select>
-        </div>
-        <div class="boundary-row">
-          <label for="sexualContent">Sexual content</label>
-          <select id="sexualContent" name="sexualContent">
-            <option value="">Select</option>
-            <option value="❌ Do not include">❌ Do not include</option>
-            <option value="⚠ Fade to black / brief mention only">⚠ Fade to black / brief mention only</option>
-            <option value="✔ Okay to include">✔ Okay to include</option>
-          </select>
-        </div>
-        <div class="boundary-row">
-          <label for="sexualViolence">Sexual violence</label>
-          <select id="sexualViolence" name="sexualViolence">
-            <option value="">Select</option>
-            <option value="❌ Do not include">❌ Do not include</option>
-            <option value="⚠ Fade to black / brief mention only">⚠ Fade to black / brief mention only</option>
-            <option value="✔ Okay to include">✔ Okay to include</option>
-          </select>
-        </div>
-        <div class="boundary-row">
-          <label for="drugThemes">Drug / addiction themes</label>
-          <select id="drugThemes" name="drugThemes">
-            <option value="">Select</option>
-            <option value="❌ Do not include">❌ Do not include</option>
-            <option value="⚠ Fade to black / brief mention only">⚠ Fade to black / brief mention only</option>
-            <option value="✔ Okay to include">✔ Okay to include</option>
-          </select>
-        </div>
-        <div class="boundary-row">
-          <label for="religiousPersecution">Religious persecution</label>
-          <select id="religiousPersecution" name="religiousPersecution">
-            <option value="">Select</option>
-            <option value="❌ Do not include">❌ Do not include</option>
-            <option value="⚠ Fade to black / brief mention only">⚠ Fade to black / brief mention only</option>
-            <option value="✔ Okay to include">✔ Okay to include</option>
-          </select>
-        </div>
-        <div class="boundary-row">
-          <label for="suicide">Suicide / self-harm</label>
-          <select id="suicide" name="suicide">
-            <option value="">Select</option>
-            <option value="❌ Do not include">❌ Do not include</option>
-            <option value="⚠ Fade to black / brief mention only">⚠ Fade to black / brief mention only</option>
-            <option value="✔ Okay to include">✔ Okay to include</option>
-          </select>
-        </div>
-
-        <h3>Horror Elements</h3>
-        <div class="boundary-row">
-          <label for="cannibalism">Cannibalism</label>
-          <select id="cannibalism" name="cannibalism">
-            <option value="">Select</option>
-            <option value="❌ Do not include">❌ Do not include</option>
-            <option value="⚠ Fade to black / brief mention only">⚠ Fade to black / brief mention only</option>
-            <option value="✔ Okay to include">✔ Okay to include</option>
-          </select>
-        </div>
-        <div class="boundary-row">
-          <label for="parasites">Parasitic creatures</label>
-          <select id="parasites" name="parasites">
-            <option value="">Select</option>
-            <option value="❌ Do not include">❌ Do not include</option>
-            <option value="⚠ Fade to black / brief mention only">⚠ Fade to black / brief mention only</option>
-            <option value="✔ Okay to include">✔ Okay to include</option>
-          </select>
-        </div>
-        <div class="boundary-row">
-          <label for="monstersConsuming">Monsters consuming people</label>
-          <select id="monstersConsuming" name="monstersConsuming">
-            <option value="">Select</option>
-            <option value="❌ Do not include">❌ Do not include</option>
-            <option value="⚠ Fade to black / brief mention only">⚠ Fade to black / brief mention only</option>
-            <option value="✔ Okay to include">✔ Okay to include</option>
-          </select>
-        </div>
-        <div class="boundary-row">
-          <label for="monsterTransformation">Transformation into monsters</label>
-          <select id="monsterTransformation" name="monsterTransformation">
-            <option value="">Select</option>
-            <option value="❌ Do not include">❌ Do not include</option>
-            <option value="⚠ Fade to black / brief mention only">⚠ Fade to black / brief mention only</option>
-            <option value="✔ Okay to include">✔ Okay to include</option>
-          </select>
-        </div>
-        <div class="boundary-row">
-          <label for="diseasePlague">Disease / magical plague</label>
-          <select id="diseasePlague" name="diseasePlague">
-            <option value="">Select</option>
-            <option value="❌ Do not include">❌ Do not include</option>
-            <option value="⚠ Fade to black / brief mention only">⚠ Fade to black / brief mention only</option>
-            <option value="✔ Okay to include">✔ Okay to include</option>
-          </select>
-        </div>
-
-        <label>
-          Additional boundaries / triggers:
-          <textarea name="additionalBoundaries"></textarea>
-        </label>
-      </fieldset>
-
-      <fieldset>
-        <legend>5. Safety Tool</legend>
-        <p>Anyone can say <strong>PAUSE</strong> at any time.</p>
-        <p>Game stops immediately — no questions asked.</p>
-        <p>We adjust, skip, or break until everyone is comfortable.</p>
-        <p>Private DM check-ins always welcome.</p>
-      </fieldset>
-
-      <fieldset>
-        <legend>6. Eberron Adventure Interests</legend>
-
-        <div class="boundary-row">
-          <label for="pulpAdventure">Pulp Adventure (airships, daring escapes, lightning rail fights)</label>
-          <select id="pulpAdventure" name="pulpAdventure">
-            <option value="">Select</option>
-            <option value="Yes">Yes</option>
-            <option value="Maybe">Maybe</option>
-            <option value="No">No</option>
-          </select>
-        </div>
-
-        <div class="boundary-row">
-          <label for="noirInvestigation">Noir Investigation (mysteries, conspiracies, crime)</label>
-          <select id="noirInvestigation" name="noirInvestigation">
-            <option value="">Select</option>
-            <option value="Yes">Yes</option>
-            <option value="Maybe">Maybe</option>
-            <option value="No">No</option>
-          </select>
-        </div>
-
-        <div class="boundary-row">
-          <label for="explorationInterest">Exploration (lost ruins, Xen’drik, ancient secrets)</label>
-          <select id="explorationInterest" name="explorationInterest">
-            <option value="">Select</option>
-            <option value="Yes">Yes</option>
-            <option value="Maybe">Maybe</option>
-            <option value="No">No</option>
-          </select>
-        </div>
-
-        <div class="boundary-row">
-          <label for="politicalIntrigue">Political Intrigue (Houses, espionage, diplomacy)</label>
-          <select id="politicalIntrigue" name="politicalIntrigue">
-            <option value="">Select</option>
-            <option value="Yes">Yes</option>
-            <option value="Maybe">Maybe</option>
-            <option value="No">No</option>
-          </select>
-        </div>
-
-        <div class="boundary-row">
-          <label for="warAftermath">War Aftermath (Last War scars & stories)</label>
-          <select id="warAftermath" name="warAftermath">
-            <option value="">Select</option>
-            <option value="Yes">Yes</option>
-            <option value="Maybe">Maybe</option>
-            <option value="No">No</option>
-          </select>
-        </div>
-
-        <div class="boundary-row">
-          <label for="horrorInterest">Horror (Daelkyr, madness, cursed items)</label>
-          <select id="horrorInterest" name="horrorInterest">
-            <option value="">Select</option>
-            <option value="Yes">Yes</option>
-            <option value="Maybe">Maybe</option>
-            <option value="No">No</option>
-          </select>
-        </div>
-
-        <div class="boundary-row">
-          <label for="highMagic">High Magic / Magitech (artificers, lightning rail, industry)</label>
-          <select id="highMagic" name="highMagic">
-            <option value="">Select</option>
-            <option value="Yes">Yes</option>
-            <option value="Maybe">Maybe</option>
-            <option value="No">No</option>
-          </select>
-        </div>
-
-        <div class="boundary-row">
-          <label for="bastionsInterest">Bastions / Player Base Building</label>
-          <select id="bastionsInterest" name="bastionsInterest">
-            <option value="">Select</option>
-            <option value="Yes">Yes</option>
-            <option value="Maybe">Maybe</option>
-            <option value="No">No</option>
-          </select>
-        </div>
-      </fieldset>
-
-      <fieldset>
-        <legend>7. Spirit Trial (Starting Experience)</legend>
-        <p>Safe tutorial in the Spirit World near Dolurrh — experiment with classes & mechanics.</p>
-
-        <label>
-          Subclass I want to test:
-          <textarea class="small-textarea" name="subclassTest"></textarea>
-        </label>
-
-        <h3>Trial Level Preference</h3>
-        <div class="inline-group">
-          <label><input type="radio" name="trialLevel" value="Level 1 – Basics" /> Level 1 – Basics</label>
-          <label><input type="radio" name="trialLevel" value="Level 4 – Full subclass feel" /> Level 4 – Full subclass feel</label>
-          <label><input type="radio" name="trialLevel" value="Level 6 – Advanced / tougher challenges" /> Level 6 – Advanced / tougher challenges</label>
-        </div>
-
-        <p>Final character chosen <strong>after</strong> trial.</p>
-      </fieldset>
-
-      <fieldset>
-        <legend>8. Early Sessions Pace</legend>
-        <div class="inline-group">
-          <label><input type="radio" name="pace" value="Slow & gentle introduction" /> Slow & gentle introduction</label>
-          <label><input type="radio" name="pace" value="Balanced learning curve" /> Balanced learning curve</label>
-          <label><input type="radio" name="pace" value="Jump straight into action" /> Jump straight into action</label>
-        </div>
-      </fieldset>
-
-      <fieldset>
-        <legend>9. Leveling Style</legend>
-        <div class="inline-group">
-          <label><input type="radio" name="levelingStyle" value="XP (earned from encounters, challenges, victories)" /> XP (earned from encounters, challenges, victories)</label>
-          <label><input type="radio" name="levelingStyle" value="Milestone (at major story beats — may include special rewards)" /> Milestone (at major story beats — may include special rewards)</label>
-        </div>
-      </fieldset>
-
-      <fieldset>
-        <legend>10. Bastions / Headquarters</legend>
-        <p>Interested in a party base (fortress, airship, workshop, guild hall, etc.)?</p>
-        <div class="inline-group">
-          <label><input type="radio" name="partyBase" value="Yes" /> Yes</label>
-          <label><input type="radio" name="partyBase" value="Maybe" /> Maybe</label>
-          <label><input type="radio" name="partyBase" value="No" /> No</label>
-        </div>
-      </fieldset>
-
-      <fieldset>
-        <legend>11. Multiclassing</legend>
-        <p>Allowed with <strong>story justification</strong> — discuss with DM early.</p>
-
-        <div class="inline-group">
-          <label><input type="radio" name="multiclassInterested" value="Yes" /> Yes</label>
-          <label><input type="radio" name="multiclassInterested" value="Maybe" /> Maybe</label>
-          <label><input type="radio" name="multiclassInterested" value="No" /> No</label>
-        </div>
-
-        <label>
-          Possible concept(s):
-          <input type="text" name="multiclassConcepts" />
-        </label>
-      </fieldset>
-
-      <fieldset>
-        <legend>12. Economy & Loot Style</legend>
-
-        <p><strong>A – Crafting & Business</strong> (classic Eberron)<br />
-        Trade, contracts, Houses, Bastions → build influence & gear.<br />
-        Restricted spells <strong>do not exist</strong> here.</p>
-
-        <p><strong>B – Market Economy</strong><br />
-        Big cities = magic markets. Gold buys items.<br />
-        Restricted spells = very rare loot only.</p>
-
-        <p><strong>C – Story / Milestone Rewards</strong><br />
-        Items via quests, discoveries, epic moments.<br />
-        Restricted spells & legendaries possible through arcs.</p>
-
-        <h3>My choice</h3>
-        <div class="inline-group">
-          <label><input type="radio" name="economyStyle" value="A – Crafting & Business" /> A – Crafting & Business</label>
-          <label><input type="radio" name="economyStyle" value="B – Market Economy" /> B – Market Economy</label>
-          <label><input type="radio" name="economyStyle" value="C – Story / Milestone" /> C – Story / Milestone</label>
-        </div>
-      </fieldset>
-
-      <fieldset>
-        <legend>13. Character Concept Prompts</legend>
-
-        <label>
-          My character once was:
-          <textarea name="characterOnceWas"></textarea>
-        </label>
-
-        <label>
-          How did they die?
-          <textarea name="howDidTheyDie"></textarea>
-        </label>
-
-        <label>
-          If returned to life, what do they want most?
-          <textarea name="whatDoTheyWantMost"></textarea>
-        </label>
-
-        <label>
-          Unfinished business tying them to the world:
-          <textarea name="unfinishedBusiness"></textarea>
-        </label>
-
-        <label>
-          Something they fear about returning:
-          <textarea name="fearAboutReturning"></textarea>
-        </label>
-      </fieldset>
-
-      <button type="submit">Submit</button>
-    </form>
-
-    <hr />
-    <p>Thank you! Excited for an unforgettable Eberron journey together.</p>
   </div>
 
   <script>
@@ -823,35 +975,6 @@ Execution / ritual sacrifice: ${getValue("execution")}
 Undead & desecration themes: ${getValue("undeadDesecration")}
 Body horror / transformation: ${getValue("bodyHorror")}
 Magical corruption / mutation: ${getValue("magicalCorruption")}
-
-War crimes: ${getValue("warCrimes")}
-Genocide / extermination: ${getValue("genocide")}
-Slavery: ${getValue("slavery")}
-Forced labor / prison camps: ${getValue("forcedLabor")}
-Political oppression: ${getValue("politicalOppression")}
-Fascist ideology references: ${getValue("fascistRefs")}
-Mass civilian casualties: ${getValue("massCasualties")}
-
-Mind control / loss of agency: ${getValue("mindControl")}
-Possession: ${getValue("possession")}
-Madness / psychological horror: ${getValue("madness")}
-Gaslighting / manipulation: ${getValue("gaslighting")}
-Isolation / imprisonment: ${getValue("isolation")}
-
-Harm to children: ${getValue("harmChildren")}
-Harm to animals: ${getValue("harmAnimals")}
-Romantic / intimate relationships: ${getValue("romance")}
-Sexual content: ${getValue("sexualContent")}
-Sexual violence: ${getValue("sexualViolence")}
-Drug / addiction themes: ${getValue("drugThemes")}
-Religious persecution: ${getValue("religiousPersecution")}
-Suicide / self-harm: ${getValue("suicide")}
-
-Cannibalism: ${getValue("cannibalism")}
-Parasitic creatures: ${getValue("parasites")}
-Monsters consuming people: ${getValue("monstersConsuming")}
-Transformation into monsters: ${getValue("monsterTransformation")}
-Disease / magical plague: ${getValue("diseasePlague")}
 
 Additional boundaries / triggers:
 ${getValue("additionalBoundaries")}
@@ -907,7 +1030,9 @@ Something they fear about returning:
 ${getValue("fearAboutReturning")}
       `.trim();
 
-      const mailtoLink = `mailto:unwierdly@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      const mailtoLink =
+        `mailto:unwierdly@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
       window.location.href = mailtoLink;
     });
   </script>
