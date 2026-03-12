@@ -1038,5 +1038,34 @@ ${getValue("fearAboutReturning")}
       window.location.href = mailtoLink;
     });
   </script>
+  <script>
+  function sendWithGmail() {
+    // Change these to match your form field IDs or names
+    const playerName = document.getElementById("playerName")?.value || "";
+    const pronouns = document.getElementById("pronouns")?.value || "";
+    const tone = document.querySelector('input[name="tone"]:checked')?.value || "";
+    const playstyle = Array.from(document.querySelectorAll('input[name="playstyle"]:checked'))
+      .map(el => el.value)
+      .join(", ");
+
+    const to = "[email protected]";
+    const subject = "D&D Session 0 Form Submission";
+
+    const body = `
+Player Name: ${playerName}
+Pronouns: ${pronouns}
+Tone: ${tone}
+Playstyle: ${playstyle}
+    `.trim();
+
+    const gmailUrl =
+      "https://mail.google.com/mail/?view=cm&fs=1" +
+      "&to=" + encodeURIComponent(to) +
+      "&su=" + encodeURIComponent(subject) +
+      "&body=" + encodeURIComponent(body);
+
+    window.open(gmailUrl, "_blank");
+  }
+</script>
 </body>
 </html>
