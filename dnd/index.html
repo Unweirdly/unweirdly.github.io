@@ -92,6 +92,24 @@
       }
     }
   </style>
+    <script>
+    function sendWithGmail() {
+      const playerName = document.getElementById("playerName").value || "";
+      const pronouns = document.getElementById("pronouns").value || "";
+
+      const to = "[email protected]";
+      const subject = "D&D Session 0 Form";
+      const body = `Player Name: ${playerName}\nPronouns: ${pronouns}`;
+
+      const gmailUrl =
+        "https://mail.google.com/mail/?view=cm&fs=1" +
+        "&to=" + encodeURIComponent(to) +
+        "&su=" + encodeURIComponent(subject) +
+        "&body=" + encodeURIComponent(body);
+
+      window.open(gmailUrl, "_blank");
+    }
+  </script>
 </head>
 <body>
   <div class="container py-3 py-md-4">
@@ -909,7 +927,6 @@
                 <textarea class="form-control" id="fearAboutReturning" name="fearAboutReturning" rows="3"></textarea>
               </div>
             </section>
-            <button type="button" onclick="sendWithGmail()">Send with Gmail</button>
 
             <div class="sticky-submit">
               <button type="submit" class="btn btn-purple btn-lg w-100">
@@ -917,7 +934,9 @@
               </button>
             </div>
           </form>
-          
+          <form id="sessionForm">
+            <button type="button" onclick="sendWithGmail()">Send with Gmail</button>
+          </form>
 
           <hr class="my-4" />
           <p class="mb-0">Thank you! Excited for an unforgettable Eberron journey together.</p>
@@ -1038,34 +1057,6 @@ ${getValue("fearAboutReturning")}
       window.location.href = mailtoLink;
     });
   </script>
-  <script>
-  function sendWithGmail() {
-    // Change these to match your form field IDs or names
-    const playerName = document.getElementById("playerName")?.value || "";
-    const pronouns = document.getElementById("pronouns")?.value || "";
-    const tone = document.querySelector('input[name="tone"]:checked')?.value || "";
-    const playstyle = Array.from(document.querySelectorAll('input[name="playstyle"]:checked'))
-      .map(el => el.value)
-      .join(", ");
 
-    const to = "[email protected]";
-    const subject = "D&D Session 0 Form Submission";
-
-    const body = `
-Player Name: ${playerName}
-Pronouns: ${pronouns}
-Tone: ${tone}
-Playstyle: ${playstyle}
-    `.trim();
-
-    const gmailUrl =
-      "https://mail.google.com/mail/?view=cm&fs=1" +
-      "&to=" + encodeURIComponent(to) +
-      "&su=" + encodeURIComponent(subject) +
-      "&body=" + encodeURIComponent(body);
-
-    window.open(gmailUrl, "_blank");
-  }
-</script>
 </body>
 </html>
