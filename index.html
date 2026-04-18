@@ -5,167 +5,314 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Unweirdly</title>
 
-  <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <style>
+    :root {
+      --bg: #0f1115;
+      --panel: #171a21;
+      --panel-2: #1f2430;
+      --text: #e8ecf1;
+      --muted: #a7b0bd;
+      --accent: #7cc4ff;
+      --border: #2c3442;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      background-color: #0f1115;
-      color: #e8ecf1;
+      background-color: var(--bg);
+      color: var(--text);
+      margin: 0;
+      font-size: 16px;
+      line-height: 1.55;
+    }
+
+    a {
+      color: var(--accent);
     }
 
     .sidebar {
-      height: 100vh;
+      background: var(--panel);
+      border-right: 1px solid var(--border);
+      min-height: 100vh;
       position: sticky;
       top: 0;
-      background: #171a21;
-      border-right: 1px solid #2c3442;
+      padding: 1rem;
     }
 
-    .sidebar a {
-      color: #a7b0bd;
+    .sidebar-title {
+      font-size: 1.5rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .sidebar .nav-link-custom {
+      color: var(--muted);
       text-decoration: none;
       display: block;
-      padding: 10px 15px;
-      border-radius: 8px;
+      padding: 0.75rem 0.9rem;
+      border-radius: 10px;
+      margin-bottom: 0.35rem;
+      transition: background-color 0.2s ease, color 0.2s ease;
     }
 
-    .sidebar a:hover {
-      background: #1f2430;
-      color: #7cc4ff;
+    .sidebar .nav-link-custom:hover,
+    .sidebar .nav-link-custom:focus {
+      background: var(--panel-2);
+      color: var(--accent);
+    }
+
+    .content-wrap {
+      padding: 1.25rem;
     }
 
     .content-card {
-      background: #171a21;
-      border: 1px solid #2c3442;
-      border-radius: 12px;
-      padding: 20px;
-      margin-bottom: 20px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.1rem;
+      margin-bottom: 1rem;
+      overflow-wrap: break-word;
     }
 
     .muted {
-      color: #a7b0bd;
+      color: var(--muted);
+    }
+
+    .spoiler-box {
+      background: var(--panel-2);
+      border-radius: 10px;
+      padding: 1rem;
+    }
+
+    .episode-meta {
+      font-size: 0.95rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .top-mobile-nav {
+      display: none;
+      background: var(--panel);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 1030;
+    }
+
+    .top-mobile-nav .brand {
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+
+    .top-mobile-nav .navbar-toggler {
+      border-color: var(--border);
+    }
+
+    .top-mobile-nav .navbar-toggler:focus {
+      box-shadow: none;
+    }
+
+    .top-mobile-nav .mobile-link {
+      color: var(--muted);
+      text-decoration: none;
+      display: block;
+      padding: 0.75rem 0;
+    }
+
+    .top-mobile-nav .mobile-link:hover {
+      color: var(--accent);
+    }
+
+    .btn-outline-light {
+      border-color: #657086;
+      color: var(--text);
+    }
+
+    .btn-outline-light:hover {
+      background: var(--panel-2);
+      border-color: #7d88a0;
+      color: #fff;
+    }
+
+    @media (max-width: 767.98px) {
+      .top-mobile-nav {
+        display: block;
+      }
+
+      .desktop-sidebar {
+        display: none;
+      }
+
+      .content-wrap {
+        padding: 1rem 0.85rem 1.5rem;
+      }
+
+      .content-card {
+        padding: 1rem;
+        border-radius: 12px;
+      }
+
+      h2 {
+        font-size: 1.6rem;
+      }
+
+      h3 {
+        font-size: 1.3rem;
+      }
+
+      h5 {
+        font-size: 1.05rem;
+        line-height: 1.4;
+      }
+
+      .btn-mobile-full {
+        display: block;
+        width: 100%;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .content-wrap {
+        padding: 1.5rem;
+      }
     }
   </style>
 </head>
 
 <body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-<div class="container-fluid">
-  <div class="row">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Sidebar -->
-    <nav class="col-md-3 col-lg-2 d-md-block sidebar p-3">
-      <h4 class="text-white">Unweirdly</h4>
-      <p class="muted">Build. Simplify. Ship.</p>
+  <!-- Mobile Nav -->
+  <nav class="top-mobile-nav navbar navbar-dark px-3 py-2">
+    <div class="container-fluid px-0">
+      <span class="brand text-white">Unweirdly</span>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mobileNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-      <hr>
-
-      <a href="#home">Home</a>
-      <a href="#poems">Love Poetry</a>
-      <a href="#darkshadows">Dark Shadows Blog</a>
-      <a href="#notes">Notes</a>
-      <a href="#about">About</a>
-    </nav>
-
-    <!-- Main Content -->
-    <main class="col-md-9 col-lg-10 px-4 py-4">
-
-      <!-- Home -->
-      <section id="home" class="content-card">
-        <h2>Welcome</h2>
-        <p class="muted">
-          A place for ideas, reflections, and creative work.  
-          Updated regularly.
-        </p>
-      </section>
-
-      <!-- Love Poetry -->
-      <section id="poems" class="content-card">
-        <h3>Love Poetry</h3>
-
-        <h5>April 17</h5>
-        <p class="muted">
-          Morning arrives without asking,<br>
-          carrying light into quiet places...<br>
-        </p>
-
-        <hr>
-
-        <h5>April 16</h5>
-        <p class="muted">
-          There are things that remain,<br>
-          even when words fall away...<br>
-        </p>
-      </section>
-
-      <!-- Dark Shadows Blog -->
-<section id="darkshadows" class="content-card">
-  <h3>Dark Shadows Journal</h3>
-
-  <div class="mb-4">
-    <h5>Season 12, Episode 2 — Episode 657</h5>
-
-    <a href="https://www.primevideo.com/detail/0GHY6YRKZIYM9DNENJOWEBMX33/ref=atv_sr_fle_c_sr52cdbe_2_1_2?sr=1-2&pageTypeIdSource=ASIN&pageTypeId=B0DNC85K7L&qid=1776486087097"
-       target="_blank"
-       class="btn btn-sm btn-primary mb-2">
-       ▶ Watch on Prime Video
-    </a>
-
-    <p class="muted">
-      4/17/2026 - Tonight's creepy dark episode of darkshadows we pick up on the quintine saga trip to Boston. 
-    </p>
-
-    <!-- Spoiler Toggle Button -->
-    <button class="btn btn-outline-light btn-sm mt-2"
-            data-bs-toggle="collapse"
-            data-bs-target="#spoiler657">
-      Show Spoilers
-    </button>
-
-    <!-- Spoiler Content -->
-    <div id="spoiler657" class="collapse mt-3">
-      <div class="p-3" style="background:#1f2430; border-radius:10px;">
-        <p class="muted">
-          The kids are up to pranks, on misses Johnson. Trying to scare her and everyone so they don't have to go to Boston. Lets me real misses Johnson is not 
-          to be messed with, but she does spook easy.
-        </p>
-
-        <p class="muted">
-          The music box that was used to hyptoze Maggie is deffently going to spook her. 
-          OH THEY TRIED TO TEASE ME witht he return on Vicky. I wish....
-        </p>
+      <div class="collapse w-100 mt-2" id="mobileNav">
+        <a class="mobile-link" href="#home">Home</a>
+        <a class="mobile-link" href="#poems">Love Poetry</a>
+        <a class="mobile-link" href="#darkshadows">Dark Shadows Blog</a>
+        <a class="mobile-link" href="#notes">Notes</a>
+        <a class="mobile-link" href="#about">About</a>
       </div>
     </div>
+  </nav>
 
+  <div class="container-fluid">
+    <div class="row g-0">
+
+      <!-- Desktop Sidebar -->
+      <nav class="col-md-3 col-lg-2 desktop-sidebar sidebar">
+        <h4 class="text-white sidebar-title">Unweirdly</h4>
+        <p class="muted mb-3">Build. Simplify. Ship.</p>
+
+        <hr class="border-secondary">
+
+        <a class="nav-link-custom" href="#home">Home</a>
+        <a class="nav-link-custom" href="#poems">Love Poetry</a>
+        <a class="nav-link-custom" href="#darkshadows">Dark Shadows Blog</a>
+        <a class="nav-link-custom" href="#notes">Notes</a>
+        <a class="nav-link-custom" href="#about">About</a>
+      </nav>
+
+      <!-- Main Content -->
+      <main class="col-12 col-md-9 col-lg-10 content-wrap">
+
+        <section id="home" class="content-card">
+          <h2>Welcome</h2>
+          <p class="muted mb-0">
+            A place for ideas, reflections, and creative work.
+            Updated regularly.
+          </p>
+        </section>
+
+        <section id="poems" class="content-card">
+          <h3>Love Poetry</h3>
+
+          <h5>April 17</h5>
+          <p class="muted">
+            Morning arrives without asking,<br>
+            carrying light into quiet places...
+          </p>
+
+          <hr class="border-secondary">
+
+          <h5>April 16</h5>
+          <p class="muted mb-0">
+            There are things that remain,<br>
+            even when words fall away...
+          </p>
+        </section>
+
+        <section id="darkshadows" class="content-card">
+          <h3>Dark Shadows Journal</h3>
+
+          <div class="mb-4">
+            <h5>Season 12, Episode 2 — Episode 657</h5>
+
+            <p class="muted episode-meta">
+              4/17/2026
+            </p>
+
+            <a href="https://www.primevideo.com/detail/0GHY6YRKZIYM9DNENJOWEBMX33/ref=atv_sr_fle_c_sr52cdbe_2_1_2?sr=1-2&pageTypeIdSource=ASIN&pageTypeId=B0DNC85K7L&qid=1776486087097"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="btn btn-primary btn-sm btn-mobile-full mb-3">
+              ▶ Watch on Prime Video
+            </a>
+
+            <p class="muted">
+              Tonight's creepy dark episode of Dark Shadows picks up on the Quentin saga trip to Boston.
+            </p>
+
+            <button class="btn btn-outline-light btn-sm mt-2 btn-mobile-full"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#spoiler657"
+                    aria-expanded="false"
+                    aria-controls="spoiler657">
+              Show Spoilers
+            </button>
+
+            <div id="spoiler657" class="collapse mt-3">
+              <div class="spoiler-box">
+                <p class="muted">
+                  The kids are up to pranks on Mrs. Johnson, trying to scare her and everyone else so they do not have to go to Boston. Let's be real, Mrs. Johnson is not to be messed with, but she does spook easy.
+                </p>
+
+                <p class="muted mb-0">
+                  The music box that was used to hypnotize Maggie is definitely going to spook her. They teased me with the return of Vicky. I wish.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <hr class="border-secondary">
+
+          <p class="muted mb-0">
+            Add daily episode notes, theories, or reactions here.
+          </p>
+        </section>
+
+        <section id="notes" class="content-card">
+          <h3>Notes</h3>
+          <p class="muted mb-0">
+            Ideas, thoughts, and experiments.
+          </p>
+        </section>
+
+        <section id="about" class="content-card">
+          <h3>About</h3>
+          <p class="muted mb-0">
+            Replace this with your story or what this site means to you.
+          </p>
+        </section>
+
+      </main>
+    </div>
   </div>
-
-  <hr>
-
-  <p class="muted">
-    Add daily episode notes, theories, or reactions here.
-  </p>
-</section>
-
-      <!-- Notes -->
-      <section id="notes" class="content-card">
-        <h3>Notes</h3>
-        <p class="muted">
-          Ideas, thoughts, and experiments.
-        </p>
-      </section>
-
-      <!-- About -->
-      <section id="about" class="content-card">
-        <h3>About</h3>
-        <p class="muted">
-          Replace this with your story or what this site means to you.
-        </p>
-      </section>
-
-    </main>
-  </div>
-</div>
-
 </body>
 </html>
