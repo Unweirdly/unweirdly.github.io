@@ -1,288 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Unweirdly</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
   <style>
-    :root {
-      --bg: #0f1115;
-      --panel: #171a21;
-      --panel-2: #1f2430;
-      --text: #e8ecf1;
-      --muted: #a7b0bd;
-      --accent: #7cc4ff;
-      --border: #2c3442;
-      --max: 1200px;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
     body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
-
-    a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    .site-shell {
-      max-width: var(--max);
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 280px 1fr;
-      gap: 32px;
-      padding: 24px;
+      background-color: #0f1115;
+      color: #e8ecf1;
     }
 
     .sidebar {
+      height: 100vh;
       position: sticky;
-      top: 24px;
-      align-self: start;
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 24px;
+      top: 0;
+      background: #171a21;
+      border-right: 1px solid #2c3442;
     }
 
-    .brand {
-      margin-bottom: 24px;
-    }
-
-    .brand h1 {
-      margin: 0 0 8px;
-      font-size: 1.6rem;
-    }
-
-    .brand p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    .sidebar nav {
-      margin-bottom: 24px;
-    }
-
-    .sidebar nav a {
-      display: block;
-      padding: 10px 12px;
-      margin-bottom: 8px;
-      border-radius: 10px;
-      color: var(--text);
-      background: transparent;
-      transition: background 0.2s ease;
-    }
-
-    .sidebar nav a:hover {
-      background: var(--panel-2);
+    .sidebar a {
+      color: #a7b0bd;
       text-decoration: none;
+      display: block;
+      padding: 10px 15px;
+      border-radius: 8px;
     }
 
-    .sidebar .meta {
-      border-top: 1px solid var(--border);
-      padding-top: 16px;
-      color: var(--muted);
-      font-size: 0.92rem;
+    .sidebar a:hover {
+      background: #1f2430;
+      color: #7cc4ff;
     }
 
-    .content {
-      min-width: 0;
-    }
-
-    .hero {
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 32px;
-      margin-bottom: 24px;
-    }
-
-    .hero h2 {
-      margin-top: 0;
-      font-size: 2.4rem;
-      line-height: 1.15;
-    }
-
-    .hero p {
-      color: var(--muted);
-      max-width: 700px;
-    }
-
-    .hero-links {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-      margin-top: 20px;
-    }
-
-    .button {
-      display: inline-block;
-      padding: 12px 16px;
-      border-radius: 10px;
-      border: 1px solid var(--border);
-      background: var(--panel-2);
-      color: var(--text);
-    }
-
-    .button.primary {
-      background: var(--accent);
-      color: #0b1220;
-      font-weight: bold;
-      border-color: transparent;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 24px;
-    }
-
-    .card {
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 24px;
-      margin-bottom: 24px;
-    }
-
-    .card h3, .card h4 {
-      margin-top: 0;
+    .content-card {
+      background: #171a21;
+      border: 1px solid #2c3442;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
     }
 
     .muted {
-      color: var(--muted);
-    }
-
-    footer {
-      color: var(--muted);
-      font-size: 0.9rem;
-      padding: 8px 0 40px;
-    }
-
-    @media (max-width: 900px) {
-      .site-shell {
-        grid-template-columns: 1fr;
-      }
-
-      .sidebar {
-        position: static;
-      }
-
-      .grid {
-        grid-template-columns: 1fr;
-      }
-
-      .hero h2 {
-        font-size: 2rem;
-      }
+      color: #a7b0bd;
     }
   </style>
 </head>
+
 <body>
-  <div class="site-shell">
-    <aside class="sidebar">
-      <div class="brand">
-        <h1>Unweirdly</h1>
-        <p>Making complicated things feel normal.</p>
-      </div>
 
-      <nav>
-        <a href="#top">Home</a>
-        <a href="#projects">Projects</a>
-        <a href="#notes">Notes</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-        <a href="https://github.com/unweirdly" target="_blank" rel="noopener noreferrer">GitHub</a>
-      </nav>
+<div class="container-fluid">
+  <div class="row">
 
-      <div class="meta">
-        <p><strong>Status:</strong> Online</p>
-        <p><strong>Stack:</strong> GitHub Pages / Static HTML</p>
-        <p><strong>Mode:</strong> Build. Simplify. Ship.</p>
-      </div>
-    </aside>
+    <!-- Sidebar -->
+    <nav class="col-md-3 col-lg-2 d-md-block sidebar p-3">
+      <h4 class="text-white">Unweirdly</h4>
+      <p class="muted">Build. Simplify. Ship.</p>
 
-    <main class="content" id="top">
-      <section class="hero">
-        <h2>Build. Simplify. Ship.</h2>
-        <p>
-          Unweirdly is a home for practical experiments: small tools, clean workflows,
-          and ideas that turn messy problems into something you can actually use.
+      <hr>
+
+      <a href="#home">Home</a>
+      <a href="#poems">Love Poetry</a>
+      <a href="#darkshadows">Dark Shadows Blog</a>
+      <a href="#notes">Notes</a>
+      <a href="#about">About</a>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="col-md-9 col-lg-10 px-4 py-4">
+
+      <!-- Home -->
+      <section id="home" class="content-card">
+        <h2>Welcome</h2>
+        <p class="muted">
+          A place for ideas, reflections, and creative work.  
+          Updated regularly.
+        </p>
+      </section>
+
+      <!-- Love Poetry -->
+      <section id="poems" class="content-card">
+        <h3>Love Poetry</h3>
+
+        <h5>April 17</h5>
+        <p class="muted">
+          Morning arrives without asking,<br>
+          carrying light into quiet places...<br>
+          (add your poem here)
         </p>
 
-        <div class="hero-links">
-          <a class="button primary" href="#projects">See what I’m building</a>
-          <a class="button" href="https://github.com/unweirdly" target="_blank" rel="noopener noreferrer">GitHub</a>
-        </div>
+        <hr>
+
+        <h5>April 16</h5>
+        <p class="muted">
+          There are things that remain,<br>
+          even when words fall away...<br>
+        </p>
       </section>
 
-      <div class="grid">
-        <section class="card">
-          <h3>Status</h3>
-          <p class="muted">Online • Deployed from <code>index.html</code></p>
-        </section>
+      <!-- Dark Shadows Blog -->
+      <section id="darkshadows" class="content-card">
+        <h3>Dark Shadows Journal</h3>
 
-        <section class="card">
-          <h3>Next</h3>
-          <p class="muted">Add a projects list, a bio, and a contact link.</p>
-        </section>
-      </div>
+        <h5>Episode Reflection</h5>
+        <p class="muted">
+          Tonight’s episode leans into tension and inevitability.  
+          Barnabas feels like a character pulled forward by something he can’t escape.
+        </p>
 
-      <section class="card">
-        <h3>Tip</h3>
-        <p class="muted">Edit this file in GitHub → commit → refresh.</p>
+        <hr>
+
+        <p class="muted">
+          Add daily episode notes, theories, or reactions here.
+        </p>
       </section>
 
-      <section class="card" id="projects">
-        <h3>Projects</h3>
-
-        <h4>Project 1: Coming soon</h4>
-        <p class="muted">Short description. What does it do? Who is it for?</p>
-
-        <h4>Project 2: Coming soon</h4>
-        <p class="muted">Add links to repos, demos, or writeups as you build.</p>
-      </section>
-
-      <section class="card" id="notes">
+      <!-- Notes -->
+      <section id="notes" class="content-card">
         <h3>Notes</h3>
-        <p class="muted">Use this space for updates, experiments, or ideas in progress.</p>
+        <p class="muted">
+          Ideas, thoughts, and experiments.
+        </p>
       </section>
 
-      <section class="card" id="about">
+      <!-- About -->
+      <section id="about" class="content-card">
         <h3>About</h3>
         <p class="muted">
-          Replace this with your actual bio. Keep it short and practical.
-          If you want, add a line about what “Unweirdly” means to you.
+          Replace this with your story or what this site means to you.
         </p>
       </section>
 
-      <section class="card" id="contact">
-        <h3>Contact</h3>
-        <p class="muted">
-          Add an email, a LinkedIn, or a simple contact form later.
-        </p>
-      </section>
-
-      <footer>
-        © Unweirdly · Hosted on GitHub Pages
-      </footer>
     </main>
   </div>
+</div>
+
 </body>
 </html>
