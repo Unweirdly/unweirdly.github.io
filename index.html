@@ -1,228 +1,288 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Unweirdly</title>
-  <meta name="description" content="Making complicated things feel normal." />
-
   <style>
-    :root{
-      --bg: #0b0f14;
-      --card: rgba(255,255,255,.08);
-      --text: rgba(255,255,255,.92);
-      --muted: rgba(255,255,255,.68);
-      --line: rgba(255,255,255,.12);
-      --accent: #7c5cff;
+    :root {
+      --bg: #0f1115;
+      --panel: #171a21;
+      --panel-2: #1f2430;
+      --text: #e8ecf1;
+      --muted: #a7b0bd;
+      --accent: #7cc4ff;
+      --border: #2c3442;
+      --max: 1200px;
     }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-      color:var(--text);
-      background:
-        radial-gradient(900px 600px at 15% 10%, rgba(124,92,255,.35), transparent 55%),
-        radial-gradient(900px 600px at 85% 0%, rgba(0,209,255,.20), transparent 55%),
-        radial-gradient(900px 600px at 65% 85%, rgba(255,92,150,.18), transparent 55%),
-        var(--bg);
-      min-height:100vh;
+
+    * {
+      box-sizing: border-box;
     }
-    a{color:inherit}
-    .wrap{max-width:980px; margin:0 auto; padding:32px 20px 60px}
-    header{
-      display:flex; align-items:center; justify-content:space-between;
-      padding:10px 0 26px;
+
+    html {
+      scroll-behavior: smooth;
     }
-    .brand{
-      display:flex; gap:12px; align-items:center; text-decoration:none;
-      letter-spacing:.3px;
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
     }
-    .logo{
-      width:36px; height:36px; border-radius:12px;
-      background: linear-gradient(135deg, rgba(124,92,255,.95), rgba(0,209,255,.85));
-      box-shadow: 0 10px 30px rgba(124,92,255,.25);
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
     }
-    nav{display:flex; gap:14px; font-size:14px; color:var(--muted)}
-    nav a{padding:8px 10px; border-radius:10px; text-decoration:none}
-    nav a:hover{background:rgba(255,255,255,.06); color:var(--text)}
-    .hero{
-      display:grid; grid-template-columns: 1.25fr .75fr;
-      gap:22px; align-items:stretch;
-      padding:22px 0 10px;
+
+    a:hover {
+      text-decoration: underline;
     }
-    .hcard{
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.04);
-      border-radius:18px;
-      padding:26px;
-      box-shadow: 0 20px 70px rgba(0,0,0,.45);
-      backdrop-filter: blur(10px);
+
+    .site-shell {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 32px;
+      padding: 24px;
     }
-    h1{
-      margin:0 0 10px;
-      font-size:44px; line-height:1.05;
-      letter-spacing:-.6px;
+
+    .sidebar {
+      position: sticky;
+      top: 24px;
+      align-self: start;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
     }
-    .sub{margin:0 0 18px; color:var(--muted); font-size:16px; line-height:1.6}
-    .pillrow{display:flex; gap:10px; flex-wrap:wrap; margin:18px 0 0}
-    .pill{
-      font-size:13px; color:var(--muted);
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.04);
-      padding:8px 10px; border-radius:999px;
+
+    .brand {
+      margin-bottom: 24px;
     }
-    .cta{display:flex; gap:12px; margin-top:18px; flex-wrap:wrap}
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center;
-      gap:10px;
-      padding:11px 14px;
-      border-radius:14px;
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.06);
-      text-decoration:none;
-      font-weight:600;
-      font-size:14px;
+
+    .brand h1 {
+      margin: 0 0 8px;
+      font-size: 1.6rem;
     }
-    .btn.primary{
+
+    .brand p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .sidebar nav {
+      margin-bottom: 24px;
+    }
+
+    .sidebar nav a {
+      display: block;
+      padding: 10px 12px;
+      margin-bottom: 8px;
+      border-radius: 10px;
+      color: var(--text);
+      background: transparent;
+      transition: background 0.2s ease;
+    }
+
+    .sidebar nav a:hover {
+      background: var(--panel-2);
+      text-decoration: none;
+    }
+
+    .sidebar .meta {
+      border-top: 1px solid var(--border);
+      padding-top: 16px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .content {
+      min-width: 0;
+    }
+
+    .hero {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px;
+      margin-bottom: 24px;
+    }
+
+    .hero h2 {
+      margin-top: 0;
+      font-size: 2.4rem;
+      line-height: 1.15;
+    }
+
+    .hero p {
+      color: var(--muted);
+      max-width: 700px;
+    }
+
+    .hero-links {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 12px 16px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--panel-2);
+      color: var(--text);
+    }
+
+    .button.primary {
+      background: var(--accent);
+      color: #0b1220;
+      font-weight: bold;
       border-color: transparent;
-      background: linear-gradient(135deg, rgba(124,92,255,.95), rgba(0,209,255,.85));
-      color:#061018;
     }
-    .btn:hover{transform: translateY(-1px)}
-    .stack{
-      display:grid; gap:12px;
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
     }
-    .box{
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.03);
-      border-radius:16px;
-      padding:16px;
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 24px;
     }
-    .k{font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:.12em}
-    .v{margin-top:6px; font-size:14px; line-height:1.5}
-    .grid{
-      margin-top:22px;
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:14px;
+
+    .card h3, .card h4 {
+      margin-top: 0;
     }
-    .card{
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.03);
-      border-radius:16px;
-      padding:16px;
-      min-height:120px;
+
+    .muted {
+      color: var(--muted);
     }
-    .card h3{margin:0 0 8px; font-size:15px}
-    .card p{margin:0; color:var(--muted); font-size:14px; line-height:1.55}
-    footer{
-      margin-top:30px;
-      padding-top:18px;
-      border-top:1px solid var(--line);
-      color:var(--muted);
-      display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;
-      font-size:13px;
+
+    footer {
+      color: var(--muted);
+      font-size: 0.9rem;
+      padding: 8px 0 40px;
     }
-    code{background:rgba(255,255,255,.06); border:1px solid var(--line); padding:2px 6px; border-radius:8px}
-    @media (max-width: 880px){
-      .hero{grid-template-columns:1fr}
-      h1{font-size:36px}
-      .grid{grid-template-columns:1fr}
+
+    @media (max-width: 900px) {
+      .site-shell {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        position: static;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h2 {
+        font-size: 2rem;
+      }
     }
   </style>
 </head>
-
 <body>
-  <div class="wrap">
-    <header>
-      <a class="brand" href="/">
-        <div class="logo" aria-hidden="true"></div>
-        <div>
-          <div style="font-weight:800; font-size:15px;">Unweirdly</div>
-          <div style="font-size:12px; color:var(--muted); margin-top:2px;">Making complicated things feel normal.</div>
-        </div>
-      </a>
+  <div class="site-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <h1>Unweirdly</h1>
+        <p>Making complicated things feel normal.</p>
+      </div>
 
       <nav>
+        <a href="#top">Home</a>
         <a href="#projects">Projects</a>
+        <a href="#notes">Notes</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
+        <a href="https://github.com/unweirdly" target="_blank" rel="noopener noreferrer">GitHub</a>
       </nav>
-    </header>
 
-    <section class="hero">
-      <div class="hcard">
-        <h1>Build. Simplify. Ship.</h1>
-        <p class="sub">
-          Unweirdly is a home for practical experiments: small tools, clean workflows, and ideas that turn messy problems into something you can actually use.
+      <div class="meta">
+        <p><strong>Status:</strong> Online</p>
+        <p><strong>Stack:</strong> GitHub Pages / Static HTML</p>
+        <p><strong>Mode:</strong> Build. Simplify. Ship.</p>
+      </div>
+    </aside>
+
+    <main class="content" id="top">
+      <section class="hero">
+        <h2>Build. Simplify. Ship.</h2>
+        <p>
+          Unweirdly is a home for practical experiments: small tools, clean workflows,
+          and ideas that turn messy problems into something you can actually use.
         </p>
 
-        <div class="cta">
-          <a class="btn primary" href="#projects">See what I’m building →</a>
-          <a class="btn" href="https://github.com/unweirdly" target="_blank" rel="noreferrer">GitHub</a>
+        <div class="hero-links">
+          <a class="button primary" href="#projects">See what I’m building</a>
+          <a class="button" href="https://github.com/unweirdly" target="_blank" rel="noopener noreferrer">GitHub</a>
         </div>
+      </section>
 
-        <div class="pillrow">
-          <span class="pill">GitHub Pages</span>
-          <span class="pill">Static site</span>
-          <span class="pill">Fast + simple</span>
-          <span class="pill">No frameworks required</span>
-        </div>
+      <div class="grid">
+        <section class="card">
+          <h3>Status</h3>
+          <p class="muted">Online • Deployed from <code>index.html</code></p>
+        </section>
+
+        <section class="card">
+          <h3>Next</h3>
+          <p class="muted">Add a projects list, a bio, and a contact link.</p>
+        </section>
       </div>
 
-      <div class="stack">
-        <div class="box">
-          <div class="k">Status</div>
-          <div class="v">Online • Deployed from <code>index.html</code></div>
-        </div>
-        <div class="box">
-          <div class="k">Next</div>
-          <div class="v">Add a projects list, a bio, and a contact link.</div>
-        </div>
-        <div class="box">
-          <div class="k">Tip</div>
-          <div class="v">Edit this file in GitHub → commit → refresh.</div>
-        </div>
-      </div>
-    </section>
+      <section class="card">
+        <h3>Tip</h3>
+        <p class="muted">Edit this file in GitHub → commit → refresh.</p>
+      </section>
 
-    <section id="projects" class="grid" aria-label="Projects">
-      <div class="card">
-        <h3>Project 1: Coming soon</h3>
-        <p>Short description. What does it do? Who is it for?</p>
-      </div>
-      <div class="card">
-        <h3>Project 2: Coming soon</h3>
-        <p>Add links to repos, demos, or writeups as you build.</p>
-      </div>
-      <div class="card">
+      <section class="card" id="projects">
+        <h3>Projects</h3>
+
+        <h4>Project 1: Coming soon</h4>
+        <p class="muted">Short description. What does it do? Who is it for?</p>
+
+        <h4>Project 2: Coming soon</h4>
+        <p class="muted">Add links to repos, demos, or writeups as you build.</p>
+      </section>
+
+      <section class="card" id="notes">
         <h3>Notes</h3>
-        <p>Use this space for updates, experiments, or ideas in progress.</p>
-      </div>
-    </section>
+        <p class="muted">Use this space for updates, experiments, or ideas in progress.</p>
+      </section>
 
-    <section id="about" style="margin-top:18px;" class="hcard">
-      <h2 style="margin:0 0 10px; font-size:18px;">About</h2>
-      <p class="sub" style="margin:0;">
-        Replace this with your actual bio. Keep it short and practical. If you want, add a line about what “Unweirdly” means to you.
-      </p>
-    </section>
+      <section class="card" id="about">
+        <h3>About</h3>
+        <p class="muted">
+          Replace this with your actual bio. Keep it short and practical.
+          If you want, add a line about what “Unweirdly” means to you.
+        </p>
+      </section>
 
-    <section id="contact" style="margin-top:14px;" class="hcard">
-      <h2 style="margin:0 0 10px; font-size:18px;">Contact</h2>
-      <p class="sub" style="margin:0;">
-        Add an email, a LinkedIn, or a simple contact form later.
-      </p>
-    </section>
+      <section class="card" id="contact">
+        <h3>Contact</h3>
+        <p class="muted">
+          Add an email, a LinkedIn, or a simple contact form later.
+        </p>
+      </section>
 
-    <footer>
-      <div>© <span id="y"></span> Unweirdly</div>
-      <div>Hosted on GitHub Pages</div>
-    </footer>
+      <footer>
+        © Unweirdly · Hosted on GitHub Pages
+      </footer>
+    </main>
   </div>
-
-  <script>
-    document.getElementById("y").textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
